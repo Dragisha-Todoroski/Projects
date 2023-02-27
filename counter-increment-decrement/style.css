@@ -1,0 +1,45 @@
+body {
+    background-color: black;
+}
+
+#outerContainer {
+    position: relative;
+    border: 1px solid;
+    width: 50rem;
+    height: 50rem;
+    margin: 3rem auto;
+    background-color: rgb(104, 12, 12);
+}
+
+.counter {
+    text-align: center;
+    font-size: 5rem;
+    color: white;
+}
+
+.margin1 {
+    position: absolute;
+    /* margin-left: auto;
+    margin-right: auto; */
+    top: 34rem;
+    left: 0;
+    right: 0;
+}
+
+.margin2 {
+    position: absolute;
+    top: 40rem;
+    left: 0;
+    right: 0;
+}
+
+.widthHeight {
+    display: block;
+    width: fit-content;
+    height: fit-content;
+    font-size: 4rem;
+    color: black;
+    margin: auto;
+}
+
+/* styles are sloppily done; I just wanted to do the JS part */
