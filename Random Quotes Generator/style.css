@@ -1,0 +1,12 @@
+#generateBtn {
+    width: fit-content;
+    height: fit-content;
+    margin-top: 15px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.font {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2rem;
+}
