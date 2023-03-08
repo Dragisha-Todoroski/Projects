@@ -24,73 +24,62 @@ quizChoiceMenuAll.forEach(btn => {
 
 const playQuiz = (overallQuizDiv, quiz, quizAll, correct1, correct2, correct3) => {
     quizChoiceMenu.classList.add('displayOnOff');
-        document.body.children[0].classList.toggle('displayOnOff');
+    document.body.children[0].classList.toggle('displayOnOff');
+    startBtn.classList.toggle('displayOnOff');
+
+    startBtn.addEventListener('click', () => {
         startBtn.classList.toggle('displayOnOff');
+        quiz.children[0].classList.toggle('displayOnOff');
 
-        startBtn.addEventListener('click', () => {
-            playQuiz(quizzes, quiz, quizAll, correct1, correct2, correct3);
-        });
-
-        startBtn.classList.toggle('displayOnOff');
-    quiz.children[0].classList.toggle('displayOnOff');
-
-    const timerInitial = Date.now(); // time at start of quiz
-    
-    let correctAnswers = 0;
-    
-    quizAll.forEach(btn => {
-        btn.addEventListener('click', () => {
-            if(btn === quizAll[0] || btn === quizAll[1] || btn === quizAll[2]) {
-                if(btn === quizAll[correct1]) {
-                    correctAnswers++;
+        const timerInitial = Date.now(); // time at start of quiz
+        
+        let correctAnswers = 0;
+        
+        quizAll.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if(btn === quizAll[0] || btn === quizAll[1] || btn === quizAll[2]) {
+                    if(btn === quizAll[correct1]) {
+                        correctAnswers++;
+                    }
+                    quiz.children[0].classList.toggle('displayOnOff');
+                    quiz.children[1].classList.toggle('displayOnOff');
                 }
-                quiz.children[0].classList.toggle('displayOnOff');
-                quiz.children[1].classList.toggle('displayOnOff');
-            }
-    
-            if(btn === quizAll[3] || btn === quizAll[4] || btn === quizAll[5]) {
-                if(btn === quizAll[correct2]) {
-                    correctAnswers++;
+        
+                if(btn === quizAll[3] || btn === quizAll[4] || btn === quizAll[5]) {
+                    if(btn === quizAll[correct2]) {
+                        correctAnswers++;
+                    }
+                    quiz.children[1].classList.toggle('displayOnOff');
+                    quiz.children[2].classList.toggle('displayOnOff');
                 }
-                quiz.children[1].classList.toggle('displayOnOff');
-                quiz.children[2].classList.toggle('displayOnOff');
-            }
-    
-            if(btn === quizAll[6] || btn === quizAll[7] || btn === quizAll[8]) {
-                const timerFinal = Date.now(); // time at end of quiz
-                const timeForCompletionInMilliseconds = timerFinal - timerInitial; // time spent in quiz in milliseconds
+        
+                if(btn === quizAll[6] || btn === quizAll[7] || btn === quizAll[8]) {
+                    const timerFinal = Date.now(); // time at end of quiz
+                    const timeForCompletionInMilliseconds = timerFinal - timerInitial; // time spent in quiz in milliseconds
 
-                const timeForCompletionInSeconds = timeForCompletionInMilliseconds / 1000; // converted to seconds (with decimal spaces)
-                const seconds = Math.floor(timeForCompletionInSeconds % 60); // extract seconds under a minute and convert to integer
+                    const timeForCompletionInSeconds = timeForCompletionInMilliseconds / 1000; // converted to seconds (with decimal spaces)
+                    const seconds = Math.floor(timeForCompletionInSeconds % 60); // extract seconds under a minute and convert to integer
 
-                const timeForCompletionInMinutes = timeForCompletionInSeconds / 60;
-                const minutes = Math.floor(timeForCompletionInMinutes % 60); // same for minutes
+                    const timeForCompletionInMinutes = timeForCompletionInSeconds / 60;
+                    const minutes = Math.floor(timeForCompletionInMinutes % 60); // same for minutes
 
-                const timeForCompletionInHours = timeForCompletionInMinutes / 60;
-                const hours = Math.floor(timeForCompletionInHours % 24); // same for hours
+                    const timeForCompletionInHours = timeForCompletionInMinutes / 60;
+                    const hours = Math.floor(timeForCompletionInHours % 24); // same for hours
 
-                if(btn === quizAll[correct3]) {
-                    correctAnswers++;
+                    if(btn === quizAll[correct3]) {
+                        correctAnswers++;
+                    }
+                    quiz.children[2].classList.toggle('displayOnOff');
+
+                    overallQuizDiv.lastElementChild.innerHTML += `
+                        <p>Time: ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}</p>
+                        <p>You got ${correctAnswers}/3 correct!</p>
+                        <p>You ${correctAnswers < 2 ? '<span class="quizFail">failed</span> the quiz! Go back to studying, dude! 😭' : '<span class="quizPass">passed</span> the quiz! Congratulations!!! 😊'}</p>
+                    `;
+
+                    overallQuizDiv.lastElementChild.classList.toggle('displayOnOff');
                 }
-                quiz.children[2].classList.toggle('displayOnOff');
-
-                overallQuizDiv.lastElementChild.innerHTML += `
-                    <p>Time: ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}</p>
-                    <p>You got ${correctAnswers}/3 correct!</p>
-                    <p>You ${correctAnswers < 2 ? '<span class="quizFail">failed</span> the quiz! Go back to studying, dude! 😭' : '<span class="quizPass">passed</span> the quiz! Congratulations!!! 😊'}</p>
-                `;
-
-                overallQuizDiv.lastElementChild.classList.toggle('displayOnOff');
-            }
+            });
         });
     });
 };
-
-// const hour = 577 / 24;
-// const hours = hour % 24;
-// const leftover = hours - Math.floor(hours);
-// const leftoverHours = Math.round(leftover * 24);
-
-// console.log(hours);
-// console.log(leftover)
-// console.log(leftoverHours);
