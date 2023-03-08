@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <p class="centerHorizontally">Pick a quiz and good luck, buddy ;)</p>
+    <div id="quizChoiceMenu">
+        <button class="cyan">CSS QUIZ</button>
+        <button class="red">JAVASCRIPT QUIZ</button>
+        <button>Media Query Test</button>
+        <button>Media Query Test</button>
+    </div>
+    <div id="quiz">
+        <button class="displayOnOff" id="startBtn">Start Quiz</button>
+        <div id="cssQuiz">
+            <div class="displayOnOff">
+                <p>1</p>
+                <p>What is the general purpose of CSS?</p>
+                <br><br>
+                <button>To give logic to the elements in the HTML</button><br>
+                <button>To style and position the HTML elements</button><br>
+                <button>Absolutely nothing</button>
+            </div>
+            <div class="displayOnOff">
+                <p>2</p>
+                <p>Which property is used for setting a dashed black border?</p>
+                <br><br>
+                <button>border: 3px dashed</button><br>
+                <button>border-style: 3px black dashed</button><br>
+                <button>border-decoration: 3px black dashed</button>
+            </div>
+            <div class="displayOnOff">
+                <p>3</p>
+                <p>Which of the following is <em>NOT</em> a CSS framework?</p>
+                <br><br>
+                <button>Tailwind</button><br>
+                <button>Bootstrap</button><br>
+                <button>Vue</button>
+            </div>
+        </div>
+        <div id="jsQuiz">
+            <div class="displayOnOff">
+                <p>1</p>
+                <p>What is the purpose of Javascript?</p>
+                <br><br>
+                <button>There is no point. There is no point to anything. What was the question?</button><br>
+                <button>To style and position the HTML elements</button><br>
+                <button>To create dynamic and interactive web content like applications and browsers</button>
+            </div>
+            <div class="displayOnOff">
+                <p>2</p>
+                <p>Is a semicolon good to use in JS?</p>
+                <br><br>
+                <button>It is not absolutely necessarily</button><br>
+                <button>It is a must use</button><br>
+                <button>It will break the code</button>
+            </div>
+            <div class="displayOnOff">
+                <p>3</p>
+                <p>Which of these is a valid JS data type</p>
+                <br><br>
+                <button>null</button><br>
+                <button>float</button><br>
+                <button>char</button>
+            </div>
+        </div>
+        <p class="displayOnOff">RESULTS:</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
