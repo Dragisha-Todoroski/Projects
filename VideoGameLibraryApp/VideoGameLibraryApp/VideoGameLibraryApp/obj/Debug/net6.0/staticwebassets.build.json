@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "Hash": "pfMg4mJbXzDZ2Mc2a1QSgTQRhpSVHZwbm5ZNJRTVQ+8=",
+  "Source": "VideoGameLibraryApp",
+  "BasePath": "_content/VideoGameLibraryApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "VideoGameLibraryApp\\wwwroot",
+      "Source": "VideoGameLibraryApp",
+      "ContentRoot": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\wwwroot\\",
+      "BasePath": "_content/VideoGameLibraryApp",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\wwwroot\\jquery.min.js",
+      "SourceId": "VideoGameLibraryApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\wwwroot\\",
+      "BasePath": "_content/VideoGameLibraryApp",
+      "RelativePath": "jquery.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\jquery.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\wwwroot\\jquery.validate.min.js",
+      "SourceId": "VideoGameLibraryApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\wwwroot\\",
+      "BasePath": "_content/VideoGameLibraryApp",
+      "RelativePath": "jquery.validate.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\jquery.validate.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\wwwroot\\jquery.validate.unobtrusive.min.js",
+      "SourceId": "VideoGameLibraryApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\wwwroot\\",
+      "BasePath": "_content/VideoGameLibraryApp",
+      "RelativePath": "jquery.validate.unobtrusive.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\wwwroot\\StyleSheet.css",
+      "SourceId": "VideoGameLibraryApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\wwwroot\\",
+      "BasePath": "_content/VideoGameLibraryApp",
+      "RelativePath": "StyleSheet.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\StyleSheet.css"
+    }
+  ]
+}

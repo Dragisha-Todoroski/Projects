@@ -1,0 +1,203 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\VideoGameLibraryApp.Repositories.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj",
+        "projectName": "VideoGameLibraryApp.DataAccess",
+        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\DRAGISA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\DRAGISA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.13, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj",
+        "projectName": "VideoGameLibraryApp.Domain",
+        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj",
+        "packagesPath": "C:\\Users\\DRAGISA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\DRAGISA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\VideoGameLibraryApp.Repositories.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\VideoGameLibraryApp.Repositories.csproj",
+        "projectName": "VideoGameLibraryApp.Repositories",
+        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\VideoGameLibraryApp.Repositories.csproj",
+        "packagesPath": "C:\\Users\\DRAGISA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\DRAGISA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\bin\Debug\net6.0\VideoGameLibraryApp.DataAccess.deps.json
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\bin\Debug\net6.0\VideoGameLibraryApp.DataAccess.runtimeconfig.json
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\bin\Debug\net6.0\VideoGameLibraryApp.DataAccess.dll
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\bin\Debug\net6.0\VideoGameLibraryApp.DataAccess.pdb
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\bin\Debug\net6.0\VideoGameLibraryApp.Domain.dll
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\bin\Debug\net6.0\VideoGameLibraryApp.Domain.pdb
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\obj\Debug\net6.0\VideoGameLibraryApp.DataAccess.csproj.AssemblyReference.cache
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\obj\Debug\net6.0\VideoGameLibraryApp.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\obj\Debug\net6.0\VideoGameLibraryApp.DataAccess.AssemblyInfoInputs.cache
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\obj\Debug\net6.0\VideoGameLibraryApp.DataAccess.AssemblyInfo.cs
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\obj\Debug\net6.0\VideoGameLibraryApp.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\obj\Debug\net6.0\VideoGameLibraryApp.DataAccess.csproj.CopyComplete
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\obj\Debug\net6.0\VideoGameLibraryApp.DataAccess.dll
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\obj\Debug\net6.0\refint\VideoGameLibraryApp.DataAccess.dll
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\obj\Debug\net6.0\VideoGameLibraryApp.DataAccess.pdb
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\obj\Debug\net6.0\VideoGameLibraryApp.DataAccess.genruntimeconfig.cache
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.DataAccess\obj\Debug\net6.0\ref\VideoGameLibraryApp.DataAccess.dll

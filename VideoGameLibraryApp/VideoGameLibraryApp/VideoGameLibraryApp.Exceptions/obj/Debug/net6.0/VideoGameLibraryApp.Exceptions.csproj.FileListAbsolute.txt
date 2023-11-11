@@ -1,0 +1,12 @@
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Exceptions\bin\Debug\net6.0\VideoGameLibraryApp.Exceptions.deps.json
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Exceptions\bin\Debug\net6.0\VideoGameLibraryApp.Exceptions.dll
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Exceptions\bin\Debug\net6.0\VideoGameLibraryApp.Exceptions.pdb
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Exceptions\obj\Debug\net6.0\VideoGameLibraryApp.Exceptions.csproj.AssemblyReference.cache
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Exceptions\obj\Debug\net6.0\VideoGameLibraryApp.Exceptions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Exceptions\obj\Debug\net6.0\VideoGameLibraryApp.Exceptions.AssemblyInfoInputs.cache
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Exceptions\obj\Debug\net6.0\VideoGameLibraryApp.Exceptions.AssemblyInfo.cs
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Exceptions\obj\Debug\net6.0\VideoGameLibraryApp.Exceptions.csproj.CoreCompileInputs.cache
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Exceptions\obj\Debug\net6.0\VideoGameLibraryApp.Exceptions.dll
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Exceptions\obj\Debug\net6.0\refint\VideoGameLibraryApp.Exceptions.dll
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Exceptions\obj\Debug\net6.0\VideoGameLibraryApp.Exceptions.pdb
+C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Exceptions\obj\Debug\net6.0\ref\VideoGameLibraryApp.Exceptions.dll

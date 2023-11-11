@@ -1,0 +1,46 @@
+﻿body {
+}
+
+.table {
+    border: 3px solid black;
+    border-spacing: 15px;
+    border-collapse: collapse;
+}
+
+.table thead th, .table tbody td {
+    padding: 15px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.table thead tr {
+    background-color: rgb(186, 89, 89);
+    color: white;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: rgb(78, 60, 150);
+    color: white;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: rgb(237, 231, 218);
+}
+
+.table tbody tr:hover {
+    transition: background-color 0.4s, color 0.2s;
+    background-color: orangered;
+    color: white;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.danger {
+    color: red;
+}

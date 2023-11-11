@@ -1,0 +1,53 @@
+﻿@model IEnumerable<VideoGameResponse>
+
+@{
+    ViewBag.Title = "Library";
+}
+
+<form asp-controller="VideoGames" asp-action="Index" method="get">
+    <h1>Welcome to your library! :)</h1>
+
+    <a asp-controller="VideoGames" asp-action="Create">Create New Video Game!</a>
+
+    <table class="table w-100">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(x => x.Title)</th>
+                <th>@Html.DisplayNameFor(x => x.Genre)</th>
+                <th>@Html.DisplayNameFor(x => x.ReleaseDate)</th>
+                <th>@Html.DisplayNameFor(x => x.Publisher)</th>
+                <th>@Html.DisplayNameFor(x => x.VideoGamePlatformAvailability)</th>
+                <th>@Html.DisplayNameFor(x => x.IsMultiplayer)</th>
+                <th>@Html.DisplayNameFor(x => x.IsCoop)</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Genre</td>
+                    <td>@item.ReleaseDate?.ToString("dd/MM/yyyy")</td>
+                    <td>@item.Publisher</td>
+                    <td>
+                        @if (item.VideoGamePlatformAvailability != null)
+                        {
+                            foreach (var platform in item.VideoGamePlatformAvailability)
+                            {
+                                if (!string.IsNullOrEmpty(platform))
+                                {
+                                    <div>@platform</div>
+                                }
+                            }
+                        }
+                    </td>
+                    <td>@item.IsMultiplayer</td>
+                    <td>@item.IsCoop</td>
+                    <td></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
