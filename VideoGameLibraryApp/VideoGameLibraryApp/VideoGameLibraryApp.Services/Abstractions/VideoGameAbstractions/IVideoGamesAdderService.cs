@@ -10,6 +10,5 @@ namespace VideoGameLibraryApp.Services.Abstractions.VideoGameAbstractions
     public interface IVideoGamesAdderService
     {
         Task<VideoGameResponse> AddVideoGame(VideoGameAddRequest? videoGameAddRequest);
-        Task CheckForDuplicateTitle(string  title);
     }
 }

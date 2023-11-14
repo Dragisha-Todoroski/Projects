@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using VideoGameLibraryApp.DataAccess;
 using VideoGameLibraryApp.Repositories.Abstractions.VideoGameAbstractions;
 using VideoGameLibraryApp.Repositories.Abstractions.VideoGamePlatformAbstractions;
+using VideoGameLibraryApp.Repositories.Abstractions.VideoGamePlatformAvailabilityAbstractions;
 using VideoGameLibraryApp.Repositories.Implementations.VideoGameImplementations;
+using VideoGameLibraryApp.Repositories.Implementations.VideoGamePlatformAvailabilityImplementations;
 using VideoGameLibraryApp.Repositories.Implementations.VideoGamePlatformImplementations;
 using VideoGameLibraryApp.Services.Abstractions.VideoGameAbstractions;
 using VideoGameLibraryApp.Services.Abstractions.VideoGamePlatformAbstractions;
@@ -35,6 +37,7 @@ namespace VideoGameLibraryApp.Helpers.Helpers
             services.AddScoped<IVideoGamesAdderService, VideoGamesAdderService>();
             services.AddScoped<IVideoGamesUpdaterService, VideoGamesUpdaterService>();
             services.AddScoped<IVideoGamesDeleterService, VideoGamesDeleterService>();
+            services.AddScoped<IVideoGamesDuplicateCheckerService, VideoGamesDuplicateCheckerService>();
 
             services.AddScoped<IVideoGamePlatformsGetterAllService, VideoGamePlatformsGetterAllService>();
         }
@@ -48,6 +51,8 @@ namespace VideoGameLibraryApp.Helpers.Helpers
             services.AddScoped<IVideoGamesDeleterRepository, VideoGamesDeleterRepository>();
 
             services.AddScoped<IVideoGamePlatformsGetterAllRepository, VideoGamePlatformsGetterAllRepository>();
+
+            services.AddScoped<IVideoGamePlatformAvailabilityDeleterRepository, VideoGamePlatformAvailabilityDeleterRepository>();
         }
     }
 }

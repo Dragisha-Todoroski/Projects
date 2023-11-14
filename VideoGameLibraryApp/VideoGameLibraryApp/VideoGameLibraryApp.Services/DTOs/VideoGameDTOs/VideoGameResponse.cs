@@ -21,7 +21,8 @@ namespace VideoGameLibraryApp.Services.DTOs.VideoGameDTOs
         public string? Publisher { get; set; }
 
         [Display(Name = "Platform Availability")]
-        public ICollection<string>? VideoGamePlatformAvailability { get; set; } = new List<string>();
+        public ICollection<string>? VideoGamePlatformAvailabilityNames { get; set; } = new List<string>();
+        public ICollection<Guid>? VideoGamePlatformAvailabilityIds { get; set; } = new List<Guid>();
 
         [Display(Name = "Is Multiplayer?")]
         public bool IsMultiplayer { get; set; }
@@ -49,7 +50,7 @@ namespace VideoGameLibraryApp.Services.DTOs.VideoGameDTOs
                 Genre = (VideoGameGenre)Enum.Parse(typeof(VideoGameGenre), Genre, true),
                 ReleaseDate = ReleaseDate,
                 Publisher = Publisher,
-                //VideoGamePlatformAvailability = (ICollection<VideoGamePlatformAvailability>?)VideoGamePlatformAvailability,
+                VideoGamePlatformIds = VideoGamePlatformAvailabilityIds,
                 IsMultiplayer = IsMultiplayer,
                 IsCoop = IsCoop
             };
@@ -72,7 +73,8 @@ namespace VideoGameLibraryApp.Services.DTOs.VideoGameDTOs
                 Genre = videoGame.Genre,
                 ReleaseDate = videoGame.ReleaseDate,
                 Publisher = videoGame.Publisher,
-                VideoGamePlatformAvailability = videoGame.VideoGamePlatformAvailability?.Select(x => x.VideoGamePlatform?.Name).ToList(),
+                VideoGamePlatformAvailabilityNames = videoGame.VideoGamePlatformAvailability?.Select(x => x.VideoGamePlatform?.Name ?? string.Empty).ToList(),
+                VideoGamePlatformAvailabilityIds = videoGame.VideoGamePlatformAvailability?.Select(x => x.VideoGamePlatform?.Id ?? Guid.Empty).ToList(),
                 IsMultiplayer = videoGame.IsMultiplayer,
                 IsCoop = videoGame.IsCoop
             };

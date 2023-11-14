@@ -15,12 +15,10 @@ namespace VideoGameLibraryApp.Services.Implementations.VIdeoGameImplementations
     public class VideoGamesAdderService : IVideoGamesAdderService
     {
         private readonly IVideoGamesAdderRepository _videoGamesAdderRepository;
-        private readonly IVideoGamesGetterAllRepository _videoGamesGetterAllRepository;
 
-        public VideoGamesAdderService(IVideoGamesAdderRepository videoGamesAdderRepository, IVideoGamesGetterAllRepository videoGamesGetterAllRepository)
+        public VideoGamesAdderService(IVideoGamesAdderRepository videoGamesAdderRepository)
         {
             _videoGamesAdderRepository = videoGamesAdderRepository;
-            _videoGamesGetterAllRepository = videoGamesGetterAllRepository;
         }
 
         public async Task<VideoGameResponse> AddVideoGame(VideoGameAddRequest? videoGameAddRequest)
@@ -57,15 +55,5 @@ namespace VideoGameLibraryApp.Services.Implementations.VIdeoGameImplementations
 
             return videoGame.ToVideoGameResponse();
         }
-
-        public async Task CheckForDuplicateTitle(string title)
-        {
-            var allVideoGames = await _videoGamesGetterAllRepository.GetAllVideoGames();
-            if (allVideoGames.Any(x => x.Title == title))
-            {
-                throw new DuplicateVideoGameTitleException("Title already exists!");
-            }
-        }
-
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using VideoGameLibraryApp.Domain.Entities;
 using VideoGameLibraryApp.Exceptions.CustomExceptions;
 using VideoGameLibraryApp.Repositories.Abstractions.VideoGameAbstractions;
+using VideoGameLibraryApp.Repositories.Abstractions.VideoGamePlatformAvailabilityAbstractions;
 using VideoGameLibraryApp.Services.Abstractions.VideoGameAbstractions;
 using VideoGameLibraryApp.Services.DTOs.VideoGameDTOs;
 using VideoGameLibraryApp.Services.Enums;
@@ -27,6 +28,9 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesServicesTests
         private readonly Mock<IVideoGamesGetterByIdRepository> _videoGamesGetterByIdRepositoryMock;
         private readonly IVideoGamesGetterByIdRepository _videoGamesGetterByIdRepository;
 
+        private readonly Mock<IVideoGamePlatformAvailabilityDeleterRepository> _videoGamePlatformAvailabilityDeleterRepositoryMock;
+        private readonly IVideoGamePlatformAvailabilityDeleterRepository _videoGamePlatformAvailabilityDeleterRepository;
+
         private readonly IFixture _fixture;
 
         public VideoGamesUpdaterServiceTests()
@@ -37,7 +41,10 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesServicesTests
             _videoGamesGetterByIdRepositoryMock = new Mock<IVideoGamesGetterByIdRepository>();
             _videoGamesGetterByIdRepository = _videoGamesGetterByIdRepositoryMock.Object;
 
-            _videoGamesUpdaterService = new VideoGamesUpdaterService(_videoGamesUpdaterRepository, _videoGamesGetterByIdRepository);
+            _videoGamePlatformAvailabilityDeleterRepositoryMock = new Mock<IVideoGamePlatformAvailabilityDeleterRepository>();
+            _videoGamePlatformAvailabilityDeleterRepository = _videoGamePlatformAvailabilityDeleterRepositoryMock.Object;
+
+            _videoGamesUpdaterService = new VideoGamesUpdaterService(_videoGamesUpdaterRepository, _videoGamesGetterByIdRepository, _videoGamePlatformAvailabilityDeleterRepository);
 
             _fixture = new Fixture();
         }

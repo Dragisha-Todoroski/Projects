@@ -24,9 +24,6 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesServicesTests
         private readonly Mock<IVideoGamesAdderRepository> _videoGamesAdderRepositoryMock;
         private readonly IVideoGamesAdderRepository _videoGamesAdderRepository;
 
-        private readonly Mock<IVideoGamesGetterAllRepository> _videoGamesGetterAllRepositoryMock;
-        private readonly IVideoGamesGetterAllRepository _videoGamesGetterAllRepository;
-
         private readonly IFixture _fixture;
 
         public VideoGamesAdderServiceTests()
@@ -34,10 +31,7 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesServicesTests
             _videoGamesAdderRepositoryMock = new Mock<IVideoGamesAdderRepository>();
             _videoGamesAdderRepository = _videoGamesAdderRepositoryMock.Object;
 
-            _videoGamesGetterAllRepositoryMock = new Mock<IVideoGamesGetterAllRepository>();
-            _videoGamesGetterAllRepository = _videoGamesGetterAllRepositoryMock.Object;
-
-            _videoGamesAdderService = new VideoGamesAdderService(_videoGamesAdderRepository, _videoGamesGetterAllRepository);
+            _videoGamesAdderService = new VideoGamesAdderService(_videoGamesAdderRepository);
 
             _fixture = new Fixture();
         }
@@ -179,10 +173,6 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesServicesTests
                 .Setup(x => x.AddVideoGame(It.IsAny<VideoGame>()))
                 .ReturnsAsync(videoGame);
 
-            _videoGamesGetterAllRepositoryMock
-                .Setup(x => x.GetAllVideoGames())
-                .ReturnsAsync(videoGamesList);
-
             // Act
             VideoGameResponse videoGameResponseActual = await _videoGamesAdderService.AddVideoGame(videoGameAddRequest);
             
@@ -194,69 +184,5 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesServicesTests
         }
 
         #endregion
-
-        #region CheckForDuplicateTitle
-
-        // Test should throw DuplicateVideoGameTitleException if duplicate property Title already exists
-
-        [Fact]
-
-        public async Task CheckForDuplicateTitle_DuplicateFound_ThrowsDuplicateVideoGameTitleException()
-        {
-            // Arrange
-            VideoGameAddRequest videoGameAddRequest = _fixture.Create<VideoGameAddRequest>();
-
-            List<VideoGame> videoGamesList = _fixture
-                .Build<VideoGame>()
-                .With(x => x.Title, videoGameAddRequest.Title)
-                .Without(x => x.VideoGamePlatformAvailability)
-                .CreateMany().ToList();
-
-            _videoGamesGetterAllRepositoryMock
-                .Setup(x => x.GetAllVideoGames())
-                .ReturnsAsync(videoGamesList);
-
-            // Act
-            var action = async () =>
-            {
-                await _videoGamesAdderService.CheckForDuplicateTitle(videoGameAddRequest.Title);
-            };
-
-            // Assert
-            await action.Should().ThrowAsync<DuplicateVideoGameTitleException>();
-        }
-
-
-
-        // Test should not throw DuplicateVideoGameTitleException if property Title is unique
-
-        [Fact]
-
-        public async Task CheckForDuplicateTitle_DuplicateNotFound_DoesNotThrowDuplicateVideoGameTitleException()
-        {
-            // Arrange
-            VideoGameAddRequest videoGameAddRequest = _fixture.Create<VideoGameAddRequest>();
-
-            List<VideoGame> videoGamesList = _fixture
-                .Build<VideoGame>()
-                .Without(x => x.VideoGamePlatformAvailability)
-                .CreateMany().ToList();
-
-            _videoGamesGetterAllRepositoryMock
-                .Setup(x => x.GetAllVideoGames())
-                .ReturnsAsync(videoGamesList);
-
-            // Act
-            var action = async () =>
-            {
-                await _videoGamesAdderService.CheckForDuplicateTitle(videoGameAddRequest.Title);
-            };
-
-            // Assert
-            await action.Should().NotThrowAsync<DuplicateVideoGameTitleException>();
-        }
-
-        #endregion
-
     }
 }

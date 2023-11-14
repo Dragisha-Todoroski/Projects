@@ -39,11 +39,10 @@ namespace VideoGameLibraryApp.Services.DTOs.VideoGameDTOs
         {
             return new VideoGame()
             {
-                Title = Title,
-                Genre = Genre.ToString(),
+                Title = Title ?? string.Empty,
+                Genre = Genre.ToString() ?? string.Empty,
                 ReleaseDate = ReleaseDate,
-                Publisher = Publisher,
-                //VideoGamePlatformAvailability = VideoGamePlatformAvailability,
+                Publisher = Publisher ?? string.Empty,
                 IsMultiplayer = IsMultiplayer,
                 IsCoop = IsCoop
             };

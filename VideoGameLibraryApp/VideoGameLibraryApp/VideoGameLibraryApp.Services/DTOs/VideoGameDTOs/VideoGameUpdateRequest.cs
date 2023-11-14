@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VideoGameLibraryApp.Domain.Entities;
 using VideoGameLibraryApp.Services.Enums;
+using VideoGameLibraryApp.Services.ServiceHelpers.CustomValidators;
 
 namespace VideoGameLibraryApp.Services.DTOs.VideoGameDTOs
 {
@@ -14,7 +15,7 @@ namespace VideoGameLibraryApp.Services.DTOs.VideoGameDTOs
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "{0} can't be blank!")]
-        [StringLength(100, ErrorMessage = "{0} can't be longer than 100 characters!")]
+        [MaximumStringLengthAllowedValidator(100, ErrorMessage = "{0} can't be longer than {1} characters!")]
         public string? Title { get; set; }
 
         [Required(ErrorMessage = "{0} can't be blank!")]
@@ -23,12 +24,16 @@ namespace VideoGameLibraryApp.Services.DTOs.VideoGameDTOs
         [DataType(DataType.Date)]
         public DateTime? ReleaseDate { get; set; }
 
-        [StringLength(50, ErrorMessage = "{0} can't be longer than 50 characters!")]
+        [MaximumStringLengthAllowedValidator(50, ErrorMessage = "{0} can't be longer than {1} characters!")]
         public string? Publisher { get; set; }
-        //public ICollection<string>? VideoGamePlatformAvailability { get; set; }
 
+        [Display(Name = "Platform Availability")]
         public ICollection<Guid>? VideoGamePlatformIds { get; set; } = new List<Guid>();
+
+        [Display(Name = "Is Multiplayer?")]
         public bool IsMultiplayer { get; set; }
+
+        [Display(Name = "Is Coop?")]
         public bool IsCoop { get; set; }
 
         public VideoGame ToVideoGame()
@@ -36,11 +41,10 @@ namespace VideoGameLibraryApp.Services.DTOs.VideoGameDTOs
             return new VideoGame()
             {
                 Id = Id,
-                Title = Title,
-                Genre = Genre.ToString(),
+                Title = Title ?? string.Empty,
+                Genre = Genre.ToString() ?? string.Empty,
                 ReleaseDate = ReleaseDate,
-                Publisher = Publisher,
-                //VideoGamePlatformAvailability = VideoGamePlatformAvailability,
+                Publisher = Publisher ?? string.Empty,
                 IsMultiplayer = IsMultiplayer,
                 IsCoop = IsCoop
             };

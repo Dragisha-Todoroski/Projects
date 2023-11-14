@@ -16,7 +16,7 @@
                 <th>@Html.DisplayNameFor(x => x.Genre)</th>
                 <th>@Html.DisplayNameFor(x => x.ReleaseDate)</th>
                 <th>@Html.DisplayNameFor(x => x.Publisher)</th>
-                <th>@Html.DisplayNameFor(x => x.VideoGamePlatformAvailability)</th>
+                <th>@Html.DisplayNameFor(x => x.VideoGamePlatformAvailabilityNames)</th>
                 <th>@Html.DisplayNameFor(x => x.IsMultiplayer)</th>
                 <th>@Html.DisplayNameFor(x => x.IsCoop)</th>
                 <th>Options</th>
@@ -32,9 +32,9 @@
                     <td>@item.ReleaseDate?.ToString("dd/MM/yyyy")</td>
                     <td>@item.Publisher</td>
                     <td>
-                        @if (item.VideoGamePlatformAvailability != null)
+                        @if (item.VideoGamePlatformAvailabilityNames != null)
                         {
-                            foreach (var platform in item.VideoGamePlatformAvailability)
+                            foreach (var platform in item.VideoGamePlatformAvailabilityNames)
                             {
                                 if (!string.IsNullOrEmpty(platform))
                                 {
@@ -45,7 +45,10 @@
                     </td>
                     <td>@item.IsMultiplayer</td>
                     <td>@item.IsCoop</td>
-                    <td></td>
+                    <td>
+                        <div><a asp-controller="VideoGames" asp-action="Edit" asp-route-videoGameId="@item.Id">Edit</a></div>
+                        <div><a asp-controller="VideoGames" asp-action="Delete" asp-route-videoGameId="@item.Id">Delete</a></div>
+                    </td>
                 </tr>
             }
         </tbody>
