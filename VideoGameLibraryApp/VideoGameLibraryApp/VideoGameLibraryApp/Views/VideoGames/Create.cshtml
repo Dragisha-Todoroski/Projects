@@ -5,27 +5,27 @@
 }
 
 <form asp-controller="VideoGames" asp-action="Create" method="post">
-    <div class="mt-10">
+    <div class="mt-25">
         @Html.LabelFor(x => x.Title)
         @Html.TextBoxFor(x => x.Title)
     </div>
 
-    <div class="mt-10">
+    <div class="mt-25">
         @Html.LabelFor(x => x.Genre)
         @Html.DropDownListFor(x => x.Genre, (List<SelectListItem>)ViewBag.Genres)
     </div>
 
-    <div class="mt-10">
+    <div class="mt-25">
         @Html.LabelFor(x => x.ReleaseDate)
         @Html.EditorFor(x => x.ReleaseDate, "dd/MM/yyyy")
     </div>
 
-    <div class="mt-10">
+    <div class="mt-25">
         @Html.LabelFor(x => x.Publisher)
         @Html.TextBoxFor(x => x.Publisher)
     </div>
 
-    <div class="mt-10">
+    <div class="mt-25">
         @Html.LabelFor(x => x.VideoGamePlatformIds)
         @foreach (var platform in ViewBag.VideoGamePlatforms)
         {
@@ -34,23 +34,21 @@
         }
     </div>
 
-    <div class="mt-10">
+    <div class="mt-25">
         @Html.LabelFor(x => x.IsMultiplayer)
         @Html.CheckBoxFor(x => x.IsMultiplayer)
     </div>
 
-    <div class="mt-10">
+    <div class="mt-25">
         @Html.LabelFor(x => x.IsCoop)
         @Html.CheckBoxFor(x => x.IsCoop)
     </div>
 
-    <div>
+    <div class="mt-35">
         <button type="submit">Create game!</button>
     </div>
 
-    <div>
-        <div asp-validation-summary="All" class="danger"></div>
-    </div>
+    <div asp-validation-summary="All" class="danger"></div>
 </form>
 
 @section validationScripts {

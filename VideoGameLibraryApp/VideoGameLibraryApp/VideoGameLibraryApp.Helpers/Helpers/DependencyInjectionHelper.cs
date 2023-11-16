@@ -37,7 +37,7 @@ namespace VideoGameLibraryApp.Helpers.Helpers
             services.AddScoped<IVideoGamesAdderService, VideoGamesAdderService>();
             services.AddScoped<IVideoGamesUpdaterService, VideoGamesUpdaterService>();
             services.AddScoped<IVideoGamesDeleterService, VideoGamesDeleterService>();
-            services.AddScoped<IVideoGamesDuplicateCheckerService, VideoGamesDuplicateCheckerService>();
+            services.AddScoped<IVideoGamesGetterByTitleService, VideoGamesGetterByTitleService>();
 
             services.AddScoped<IVideoGamePlatformsGetterAllService, VideoGamePlatformsGetterAllService>();
         }
@@ -49,6 +49,7 @@ namespace VideoGameLibraryApp.Helpers.Helpers
             services.AddScoped<IVideoGamesAdderRepository, VideoGamesAdderRepository>();
             services.AddScoped<IVideoGamesUpdaterRepository, VideoGamesUpdaterRepository>();
             services.AddScoped<IVideoGamesDeleterRepository, VideoGamesDeleterRepository>();
+            services.AddScoped<IVideoGamesGetterByTitleRepository, VideoGamesGetterByTitleRepository>();
 
             services.AddScoped<IVideoGamePlatformsGetterAllRepository, VideoGamePlatformsGetterAllRepository>();
 

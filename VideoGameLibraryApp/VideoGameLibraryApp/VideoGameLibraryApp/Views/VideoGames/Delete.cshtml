@@ -5,25 +5,25 @@
 }
 
 <form asp-controller="VideoGames" asp-action="Delete" method="post">
-    @Html.HiddenFor(x => x.Id);
+    <div class="display-none">
+        @Html.HiddenFor(x => x.Id);
+    </div>
 
-    <div class="mt-10">
+    <div class="mt-25">
         @Html.LabelFor(x => x.Title)
         @Html.TextBoxFor(x => x.Title, new { disabled="disabled"})
     </div>
 
-    <div class="mt-10">
+    <div class="mt-25">
         @Html.LabelFor(x => x.Genre)
         @Html.TextBoxFor(x => x.Genre, new { disabled="disabled"})
     </div>
 
-    <div>
+    <div class="mt-35">
         <button type="submit">Delete game!</button>
     </div>
 
-    <div>
-        <div asp-validation-summary="All" class="danger"></div>
-    </div>
+    <div asp-validation-summary="All" class="danger"></div>
 </form>
 
 @section validationScripts {

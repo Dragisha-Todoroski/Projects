@@ -27,9 +27,9 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesControllersTests
 
         private readonly Mock<IVideoGamesAdderService> _videoGamesAdderServiceMock;
         private readonly IVideoGamesAdderService _videoGamesAdderService;
-
-        private readonly Mock<IVideoGamesDuplicateCheckerService> _videoGamesDuplicateCheckerServiceMock;
-        private readonly IVideoGamesDuplicateCheckerService _videoGamesDuplicateCheckerService;
+        
+        private readonly Mock<IVideoGamesGetterByTitleService> _videoGamesGetterByTitleServiceMock;
+        private readonly IVideoGamesGetterByTitleService _videoGamesGetterByTitleService;
 
         private readonly Mock<IVideoGamesGetterByIdService> _videoGamesGetterByIdServiceMock;
         private readonly IVideoGamesGetterByIdService _videoGamesGetterByIdService;
@@ -53,8 +53,8 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesControllersTests
             _videoGamesAdderServiceMock = new Mock<IVideoGamesAdderService>();
             _videoGamesAdderService = _videoGamesAdderServiceMock.Object;
 
-            _videoGamesDuplicateCheckerServiceMock = new Mock<IVideoGamesDuplicateCheckerService>();
-            _videoGamesDuplicateCheckerService = _videoGamesDuplicateCheckerServiceMock.Object;
+            _videoGamesGetterByTitleServiceMock = new Mock<IVideoGamesGetterByTitleService>();
+            _videoGamesGetterByTitleService = _videoGamesGetterByTitleServiceMock.Object;
 
             _videoGamesGetterByIdServiceMock = new Mock<IVideoGamesGetterByIdService>();
             _videoGamesGetterByIdService = _videoGamesGetterByIdServiceMock.Object;
@@ -68,7 +68,7 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesControllersTests
             _videoGamesDeleterServiceMock = new Mock<IVideoGamesDeleterService>();
             _videoGamesDeleterService = _videoGamesDeleterServiceMock.Object;
 
-            _videoGamesController = new VideoGamesController(_videoGamesGetterAllService, _videoGamesGetterByIdService, _videoGamesDuplicateCheckerService, _videoGamesAdderService, _videoGamesUpdaterService, _videoGamePlatformsGetterAllService, _videoGamesDeleterService);
+            _videoGamesController = new VideoGamesController(_videoGamesGetterAllService, _videoGamesGetterByIdService, _videoGamesGetterByTitleService, _videoGamesAdderService, _videoGamesUpdaterService, _videoGamePlatformsGetterAllService, _videoGamesDeleterService);
 
             _fixture = new Fixture();
         }
@@ -130,36 +130,6 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesControllersTests
 
 
 
-        // Test should return ViewResult with appropriate Model in the case of model errors and DuplicateVideoGameTitleException
-
-        [Fact]
-
-        public async Task Create_IfModelErrorsInHttpPostMethodWithDuplicateVideoGameTitle_ReturnsViewResultWithCorrectModel()
-        {
-            // Assert
-            VideoGameAddRequest videoGameAddRequest = _fixture.Create<VideoGameAddRequest>();
-
-            List<VideoGamePlatformResponse> videoGamePlatformResponseList = _fixture.CreateMany<VideoGamePlatformResponse>().ToList();
-
-            _videoGamesDuplicateCheckerServiceMock
-                .Setup(x => x.CheckForDuplicateTitle(It.IsAny<string>()))
-                .ThrowsAsync(new DuplicateVideoGameTitleException());
-
-            // Act
-            _videoGamesController.ModelState.AddModelError(nameof(videoGameAddRequest.Title), "Title can't be longer than 100 characters!");
-
-            IActionResult result = await _videoGamesController.Create(videoGameAddRequest);
-
-            // Assert
-            ViewResult viewResult = Assert.IsType<ViewResult>(result);
-
-            viewResult.Model.Should().BeOfType<VideoGameAddRequest>();
-
-            viewResult.Model.Should().BeEquivalentTo(videoGameAddRequest);
-        }
-
-
-
         // Test should return ViewResult with appropriate Model in the case of model errors
 
         [Fact]
@@ -169,11 +139,17 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesControllersTests
             // Assert
             VideoGameAddRequest videoGameAddRequest = _fixture.Create<VideoGameAddRequest>();
 
+            VideoGameResponse? videoGameResponse = videoGameAddRequest.ToVideoGame().ToVideoGameResponse();
+
             List<VideoGamePlatformResponse> videoGamePlatformResponseList = _fixture.CreateMany<VideoGamePlatformResponse>().ToList();
 
-            _videoGamesDuplicateCheckerServiceMock
-                .Setup(x => x.CheckForDuplicateTitle(It.IsAny<string>()))
-                .Returns(Task.CompletedTask);
+            _videoGamesGetterByTitleServiceMock
+                .Setup(x => x.GetVideoGameByTitle(It.IsAny<string>()))
+                .ReturnsAsync(videoGameResponse);
+
+            _videoGamePlatformsGetterAllServiceMock
+                .Setup(x => x.GetAllVideoGamePlatforms())
+                .ReturnsAsync(videoGamePlatformResponseList);
 
             // Act
             _videoGamesController.ModelState.AddModelError(nameof(videoGameAddRequest.Title), "Title can't be longer than 100 characters!");
@@ -190,7 +166,37 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesControllersTests
 
 
 
-        // Test should return RedirectToActionResult to Index action method in the case of no model errors
+        // Test should return ViewResult with appropriate Model in the case of model errors, but no duplicate title
+
+        //[Fact]
+
+        //public async Task Create_IfModelErrorsInHttpPostMethod_ReturnsViewResultWithCorrectModel()
+        //{
+        //    // Assert
+        //    VideoGameAddRequest videoGameAddRequest = _fixture.Create<VideoGameAddRequest>();
+
+        //    List<VideoGamePlatformResponse> videoGamePlatformResponseList = _fixture.CreateMany<VideoGamePlatformResponse>().ToList();
+
+        //    _videoGamesGetterByTitleServiceMock
+        //        .Setup(x => x.GetVideoGameByTitle(It.IsAny<string>()))
+        //        .ReturnsAsync(videoGameResponse);
+
+        //    // Act
+        //    _videoGamesController.ModelState.AddModelError(nameof(videoGameAddRequest.Title), "Title can't be longer than 100 characters!");
+
+        //    IActionResult result = await _videoGamesController.Create(videoGameAddRequest);
+
+        //    // Assert
+        //    ViewResult viewResult = Assert.IsType<ViewResult>(result);
+
+        //    viewResult.Model.Should().BeOfType<VideoGameAddRequest>();
+
+        //    viewResult.Model.Should().BeEquivalentTo(videoGameAddRequest);
+        //}
+
+
+
+        // Test should return RedirectToActionResult to Index action method in the case of no model errors after adding game
 
         [Fact]
 
@@ -199,15 +205,15 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesControllersTests
             // Arrange
             VideoGameAddRequest videoGameAddRequest = _fixture.Create<VideoGameAddRequest>();
 
-            VideoGameResponse videoGameResponse = videoGameAddRequest.ToVideoGame().ToVideoGameResponse();
+            VideoGameResponse? videoGameResponseDuplicate = null;
 
-            _videoGamesDuplicateCheckerServiceMock
-                .Setup(x => x.CheckForDuplicateTitle(It.IsAny<string>()))
-                .Returns(Task.CompletedTask);
+            _videoGamesGetterByTitleServiceMock
+                .Setup(x => x.GetVideoGameByTitle(It.IsAny<string>()))
+                .ReturnsAsync(videoGameResponseDuplicate);
 
             _videoGamesAdderServiceMock
                 .Setup(x => x.AddVideoGame(It.IsAny<VideoGameAddRequest>()))
-                .ReturnsAsync(videoGameResponse);
+                .ReturnsAsync(new VideoGameResponse());
 
             // Act
             IActionResult result = await _videoGamesController.Create(videoGameAddRequest);

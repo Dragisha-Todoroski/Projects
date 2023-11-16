@@ -1,4 +1,5 @@
 using VideoGameLibraryApp.Helpers.Helpers;
+using VideoGameLibraryApp.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
@@ -10,8 +11,11 @@ DependencyInjectionHelper.InjectRepositories(builder.Services);
 var app = builder.Build();
 
 if (builder.Environment.IsDevelopment())
-{
     app.UseDeveloperExceptionPage();
+else
+{
+    app.UseExceptionHandler("/Error");
+    app.UseCustomExceptionHandlingMiddleware();
 }
 
 app.UseStaticFiles();

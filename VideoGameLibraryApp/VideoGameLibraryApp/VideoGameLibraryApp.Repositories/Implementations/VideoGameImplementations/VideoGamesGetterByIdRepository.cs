@@ -21,7 +21,21 @@ namespace VideoGameLibraryApp.Repositories.Implementations.VideoGameImplementati
 
         public async Task<VideoGame?> GetVideoGameById(Guid videoGameId)
         {
-            return await _context.Set<VideoGame>().Include(x => x.VideoGamePlatformAvailability).ThenInclude(y => y.VideoGamePlatform).FirstOrDefaultAsync(x => x.Id == videoGameId);
+            var videoGame = await _context.Set<VideoGame>()
+                .Include(x => x.VideoGamePlatformAvailability)
+                .FirstOrDefaultAsync(y => y.Id == videoGameId);
+
+            // If VideoGamePlatformAvailability has at least one item in it, load the related VideoGamePlatform
+            if (videoGame != null && videoGame.VideoGamePlatformAvailability != null)
+            {
+                _context.Entry(videoGame)
+                    .Collection(x => x.VideoGamePlatformAvailability!)
+                    .Query()
+                    .Include(y => y.VideoGamePlatform)
+                    .Load();
+            }
+
+            return videoGame;
         }
     }
 }

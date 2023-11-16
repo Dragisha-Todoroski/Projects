@@ -18,16 +18,16 @@ namespace VideoGameLibraryApp.Controllers
         private readonly IVideoGamesAdderService _videoGamesAdderService;
         private readonly IVideoGamesUpdaterService _videoGamesUpdaterService;
         private readonly IVideoGamesDeleterService _videoGamesDeleterService;
-        private readonly IVideoGamesDuplicateCheckerService _videoGamesDuplicateChecker;
+        private readonly IVideoGamesGetterByTitleService _videoGamesGetterByTitleService;
         private readonly IVideoGamePlatformsGetterAllService _videoGamePlatformsGetterAllService;
 
-        public VideoGamesController(IVideoGamesGetterAllService videoGamesGetterAllService, IVideoGamesGetterByIdService videoGamesGetterByIdService, IVideoGamesDuplicateCheckerService videoGamesDuplicateChecker, IVideoGamesAdderService videoGamesAdderService, IVideoGamesUpdaterService videoGamesUpdaterService,  IVideoGamePlatformsGetterAllService videoGamePlatformsGetterAllService, IVideoGamesDeleterService videoGamesDeleterService)
+        public VideoGamesController(IVideoGamesGetterAllService videoGamesGetterAllService, IVideoGamesGetterByIdService videoGamesGetterByIdService, IVideoGamesGetterByTitleService videoGamesGetterByTitleService, IVideoGamesAdderService videoGamesAdderService, IVideoGamesUpdaterService videoGamesUpdaterService,  IVideoGamePlatformsGetterAllService videoGamePlatformsGetterAllService, IVideoGamesDeleterService videoGamesDeleterService)
         {
             _videoGamesGetterAllService = videoGamesGetterAllService;
             _videoGamesGetterByIdService = videoGamesGetterByIdService;
             _videoGamesAdderService = videoGamesAdderService;
             _videoGamesUpdaterService = videoGamesUpdaterService;
-            _videoGamesDuplicateChecker = videoGamesDuplicateChecker;
+            _videoGamesGetterByTitleService = videoGamesGetterByTitleService;
             _videoGamePlatformsGetterAllService = videoGamePlatformsGetterAllService;
             _videoGamesDeleterService = videoGamesDeleterService;
         }
@@ -37,6 +37,16 @@ namespace VideoGameLibraryApp.Controllers
         public async Task<IActionResult> Index()
         {
             var videoGamesList = await _videoGamesGetterAllService.GetAllVideoGames();
+
+            // Grabs display name for Genre if it exists (otherwise grabs value normally)
+            foreach (var videoGame in videoGamesList)
+            {
+                videoGame.Genre = typeof(VideoGameGenre)
+                    .GetMember(videoGame.Genre!.ToString())
+                            .First()
+                            .GetCustomAttribute<DisplayAttribute>()?
+                            .GetName() ?? videoGame.Genre.ToString();
+            }
 
             return View(videoGamesList);
         }
@@ -54,28 +64,20 @@ namespace VideoGameLibraryApp.Controllers
         [Route("[action]")]
         public async Task<IActionResult> Create(VideoGameAddRequest videoGameAddRequest)
         {
-            try
+            VideoGameResponse? videoGameResponse = await _videoGamesGetterByTitleService.GetVideoGameByTitle(videoGameAddRequest.Title);
+            if (videoGameResponse != null)
+                ModelState.AddModelError("Duplicate Title", "Title already exists!");
+
+            if (!ModelState.IsValid)
             {
-                await _videoGamesDuplicateChecker.CheckForDuplicateTitle(videoGameAddRequest.Title);
-                if (!ModelState.IsValid)
-                {
-                    await VideoGameGenreAndPlatformsViewBagSetup();
-
-                    return View(videoGameAddRequest);
-                }
-
-                VideoGameResponse videoGameResponse = await _videoGamesAdderService.AddVideoGame(videoGameAddRequest);
-
-                return RedirectToAction("Index");
-            }
-            catch (DuplicateVideoGameTitleException ex)
-            {
-                ModelState.AddModelError("Title", ex.Message);
-
                 await VideoGameGenreAndPlatformsViewBagSetup();
 
                 return View(videoGameAddRequest);
             }
+
+            await _videoGamesAdderService.AddVideoGame(videoGameAddRequest);
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]

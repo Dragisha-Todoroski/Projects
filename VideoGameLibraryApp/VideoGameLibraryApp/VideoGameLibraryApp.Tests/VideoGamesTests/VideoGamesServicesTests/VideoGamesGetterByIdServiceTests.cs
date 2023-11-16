@@ -91,8 +91,6 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesServicesTests
                 .Without(x => x.VideoGamePlatformAvailability)
                 .Create();
 
-            Guid videoGameId = videoGame.Id;
-
             VideoGameResponse videoGameResponseExpected = videoGame.ToVideoGameResponse();
 
             _videoGamesGetterByIdRepositoryMock
@@ -100,7 +98,7 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesServicesTests
                 .ReturnsAsync(videoGame);
 
             // Act
-            VideoGameResponse? videoGameResponseActual = await _videoGamesGetterByIdService.GetVideoGameById(videoGameId);
+            VideoGameResponse? videoGameResponseActual = await _videoGamesGetterByIdService.GetVideoGameById(videoGame.Id);
 
             // Assert
             videoGameResponseActual.Should().BeEquivalentTo(videoGameResponseExpected);
