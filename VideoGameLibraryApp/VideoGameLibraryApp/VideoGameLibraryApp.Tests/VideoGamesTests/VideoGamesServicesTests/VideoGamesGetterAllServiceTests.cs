@@ -1,6 +1,5 @@
 ﻿using AutoFixture;
 using FluentAssertions;
-using Microsoft.Identity.Client;
 using Moq;
 using System;
 using System.Collections.Generic;

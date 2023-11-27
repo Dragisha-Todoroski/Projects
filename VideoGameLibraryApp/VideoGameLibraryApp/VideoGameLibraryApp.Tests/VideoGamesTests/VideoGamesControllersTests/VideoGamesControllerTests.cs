@@ -100,7 +100,7 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesControllersTests
 
             viewResult.Model.Should().BeOfType<List<VideoGameResponse>>();
 
-            viewResult.Model.Should().Be(videoGameResponseList);
+            viewResult.Model.Should().BeEquivalentTo(videoGameResponseList);
         }
 
         #endregion
@@ -163,36 +163,6 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesControllersTests
 
             viewResult.Model.Should().BeEquivalentTo(videoGameAddRequest);
         }
-
-
-
-        // Test should return ViewResult with appropriate Model in the case of model errors, but no duplicate title
-
-        //[Fact]
-
-        //public async Task Create_IfModelErrorsInHttpPostMethod_ReturnsViewResultWithCorrectModel()
-        //{
-        //    // Assert
-        //    VideoGameAddRequest videoGameAddRequest = _fixture.Create<VideoGameAddRequest>();
-
-        //    List<VideoGamePlatformResponse> videoGamePlatformResponseList = _fixture.CreateMany<VideoGamePlatformResponse>().ToList();
-
-        //    _videoGamesGetterByTitleServiceMock
-        //        .Setup(x => x.GetVideoGameByTitle(It.IsAny<string>()))
-        //        .ReturnsAsync(videoGameResponse);
-
-        //    // Act
-        //    _videoGamesController.ModelState.AddModelError(nameof(videoGameAddRequest.Title), "Title can't be longer than 100 characters!");
-
-        //    IActionResult result = await _videoGamesController.Create(videoGameAddRequest);
-
-        //    // Assert
-        //    ViewResult viewResult = Assert.IsType<ViewResult>(result);
-
-        //    viewResult.Model.Should().BeOfType<VideoGameAddRequest>();
-
-        //    viewResult.Model.Should().BeEquivalentTo(videoGameAddRequest);
-        //}
 
 
 

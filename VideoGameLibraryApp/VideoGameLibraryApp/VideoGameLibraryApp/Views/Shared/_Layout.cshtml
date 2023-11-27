@@ -8,6 +8,21 @@
 </head>
 <body>
     <div>
+        <div>
+            @if (User.Identity!.IsAuthenticated)
+            {
+                @User.Identity.Name
+                <a asp-controller="Account" asp-action="Logout">Logout</a>
+            }
+            else
+            {
+                <a asp-controller="Account" asp-action="Register">Register</a>
+                <a asp-controller="Account" asp-action="Login">Login</a>
+            }
+        </div>
+    </div>
+
+    <div>
         @RenderBody()
     </div>
 

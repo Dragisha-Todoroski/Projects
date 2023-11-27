@@ -41,11 +41,20 @@ namespace VideoGameLibraryApp.Controllers
             // Grabs display name for Genre if it exists (otherwise grabs value normally)
             foreach (var videoGame in videoGamesList)
             {
-                videoGame.Genre = typeof(VideoGameGenre)
+                var genre = typeof(VideoGameGenre)
                     .GetMember(videoGame.Genre!.ToString())
-                            .First()
-                            .GetCustomAttribute<DisplayAttribute>()?
-                            .GetName() ?? videoGame.Genre.ToString();
+                    .FirstOrDefault();
+
+                if (genre == null)
+                    videoGame.Genre = videoGame.Genre.ToString();
+                else
+                {
+                    var displayAttribute = genre.GetCustomAttribute<DisplayAttribute>();
+                    if (displayAttribute != null)
+                    {
+                        videoGame.Genre = displayAttribute.GetName();
+                    }
+                }
             }
 
             return View(videoGamesList);

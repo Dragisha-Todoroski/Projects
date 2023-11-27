@@ -1,20 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VideoGameLibraryApp.Domain.Entities;
+using VideoGameLibraryApp.Domain.IdentiyEntities;
 
 namespace VideoGameLibraryApp.DataAccess
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
     {
         public ApplicationDbContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<VideoGame> VideoGames { get; set; }
-        public DbSet<VideoGamePlatform> VideoGamePlatforms { get; set; }
-        public DbSet<VideoGamePlatformAvailability> VideoGamePlatformAvailability { get; set; }
+        public DbSet<VideoGame>? VideoGames { get; set; }
+        public DbSet<VideoGamePlatform>? VideoGamePlatforms { get; set; }
+        public DbSet<VideoGamePlatformAvailability>? VideoGamePlatformAvailability { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

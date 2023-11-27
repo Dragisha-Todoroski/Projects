@@ -10,3 +10,15 @@ C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibrar
 C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\obj\Debug\net6.0\refint\VideoGameLibraryApp.Domain.dll
 C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\obj\Debug\net6.0\VideoGameLibraryApp.Domain.pdb
 C:\Users\DRAGISA\Desktop\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\obj\Debug\net6.0\ref\VideoGameLibraryApp.Domain.dll
+C:\Users\DRAGISA\Desktop\proj\Projects\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\bin\Debug\net6.0\VideoGameLibraryApp.Domain.deps.json
+C:\Users\DRAGISA\Desktop\proj\Projects\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\bin\Debug\net6.0\VideoGameLibraryApp.Domain.dll
+C:\Users\DRAGISA\Desktop\proj\Projects\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\bin\Debug\net6.0\VideoGameLibraryApp.Domain.pdb
+C:\Users\DRAGISA\Desktop\proj\Projects\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\obj\Debug\net6.0\VideoGameLibraryApp.Domain.csproj.AssemblyReference.cache
+C:\Users\DRAGISA\Desktop\proj\Projects\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\obj\Debug\net6.0\VideoGameLibraryApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DRAGISA\Desktop\proj\Projects\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\obj\Debug\net6.0\VideoGameLibraryApp.Domain.AssemblyInfoInputs.cache
+C:\Users\DRAGISA\Desktop\proj\Projects\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\obj\Debug\net6.0\VideoGameLibraryApp.Domain.AssemblyInfo.cs
+C:\Users\DRAGISA\Desktop\proj\Projects\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\obj\Debug\net6.0\VideoGameLibraryApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\DRAGISA\Desktop\proj\Projects\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\obj\Debug\net6.0\VideoGameLibraryApp.Domain.dll
+C:\Users\DRAGISA\Desktop\proj\Projects\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\obj\Debug\net6.0\refint\VideoGameLibraryApp.Domain.dll
+C:\Users\DRAGISA\Desktop\proj\Projects\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\obj\Debug\net6.0\VideoGameLibraryApp.Domain.pdb
+C:\Users\DRAGISA\Desktop\proj\Projects\VideoGameLibraryApp\VideoGameLibraryApp\VideoGameLibraryApp.Domain\obj\Debug\net6.0\ref\VideoGameLibraryApp.Domain.dll

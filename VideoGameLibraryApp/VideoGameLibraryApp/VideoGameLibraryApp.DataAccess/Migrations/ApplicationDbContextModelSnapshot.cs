@@ -17,10 +17,113 @@ namespace VideoGameLibraryApp.DataAccess.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.13")
+                .HasAnnotation("ProductVersion", "6.0.25")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
 
             modelBuilder.Entity("VideoGameLibraryApp.Domain.Entities.VideoGame", b =>
                 {
@@ -53,12 +156,12 @@ namespace VideoGameLibraryApp.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("VideoGames", (string)null);
+                    b.ToTable("VideoGames");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2eabc775-0201-4c48-8200-6c3aba9c6d4b"),
+                            Id = new Guid("03b5a674-042f-4b43-a23f-44e2264f0ccc"),
                             Genre = "Survival",
                             IsCoop = false,
                             IsMultiplayer = true,
@@ -68,7 +171,7 @@ namespace VideoGameLibraryApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("63e26d44-502d-4ca4-a47c-4538e10f5bd3"),
+                            Id = new Guid("b436970e-b327-4f68-b450-a8b507398a90"),
                             Genre = "Platformer",
                             IsCoop = true,
                             IsMultiplayer = false,
@@ -77,7 +180,7 @@ namespace VideoGameLibraryApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a4d51e63-bbeb-42a7-abb9-b127932d13f7"),
+                            Id = new Guid("55a05148-2325-4adf-8bcc-68c2ddb0d831"),
                             Genre = "Shooter",
                             IsCoop = true,
                             IsMultiplayer = true,
@@ -98,47 +201,47 @@ namespace VideoGameLibraryApp.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("VideoGamePlatforms", (string)null);
+                    b.ToTable("VideoGamePlatforms");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("85f22a92-e6e7-420a-a341-046a847089fe"),
+                            Id = new Guid("113d10f3-f964-4696-9703-fe36c0d48241"),
                             Name = "PC"
                         },
                         new
                         {
-                            Id = new Guid("61b1424a-df05-4876-956d-b2b004f0c59a"),
+                            Id = new Guid("e8aec99d-b01b-45dc-a477-60a9500ee167"),
                             Name = "Nintendo Switch"
                         },
                         new
                         {
-                            Id = new Guid("6346523c-c372-4ea1-833f-fe8e345faf2f"),
+                            Id = new Guid("78a8add8-df90-4dc1-af69-63d3fe855091"),
                             Name = "Nintendo 64"
                         },
                         new
                         {
-                            Id = new Guid("3877daeb-e889-4889-9b02-cc0f696bc6ea"),
+                            Id = new Guid("c5cd4e82-d99e-4e84-b78c-c36711d58558"),
                             Name = "Xbox 360"
                         },
                         new
                         {
-                            Id = new Guid("0e55f0c8-2ad4-4238-af3d-019cf5f42f70"),
+                            Id = new Guid("f6408ef3-ff72-4825-927b-7c04041e2bb8"),
                             Name = "Xbox Series X/S"
                         },
                         new
                         {
-                            Id = new Guid("015b4979-c47f-43fc-8d01-8d8c71b47c95"),
+                            Id = new Guid("dfbfee55-bbc8-45c7-b284-a3bff7c3c5f1"),
                             Name = "PlayStation 4"
                         },
                         new
                         {
-                            Id = new Guid("e4f513a7-d348-466b-830c-165a8aed2b4d"),
+                            Id = new Guid("96eeb442-090d-4ddd-bf6f-d04c199e5162"),
                             Name = "PlayStation 5"
                         },
                         new
                         {
-                            Id = new Guid("22312817-bd95-4589-91ea-6f285ce91a95"),
+                            Id = new Guid("f6953e04-920d-4d31-b821-ca5705b040fb"),
                             Name = "Android/IOS"
                         });
                 });
@@ -161,45 +264,190 @@ namespace VideoGameLibraryApp.DataAccess.Migrations
 
                     b.HasIndex("VideoGamePlatformId");
 
-                    b.ToTable("VideoGamePlatformAvailability", (string)null);
+                    b.ToTable("VideoGamePlatformAvailability");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("01598331-16ea-4189-a870-380fede80861"),
-                            VideoGameId = new Guid("2eabc775-0201-4c48-8200-6c3aba9c6d4b"),
+                            Id = new Guid("c62446f9-d8ff-499b-baf6-9a75b5e37bfa"),
+                            VideoGameId = new Guid("03b5a674-042f-4b43-a23f-44e2264f0ccc"),
                             VideoGamePlatformId = new Guid("518a4c3e-5a6d-4ca5-b960-ce27a73d4afc")
                         },
                         new
                         {
-                            Id = new Guid("c42f83c1-7463-4b23-a235-baf0d7484c18"),
-                            VideoGameId = new Guid("2eabc775-0201-4c48-8200-6c3aba9c6d4b"),
+                            Id = new Guid("da5ab1e3-8f08-4727-a37f-5e11cc73c619"),
+                            VideoGameId = new Guid("03b5a674-042f-4b43-a23f-44e2264f0ccc"),
                             VideoGamePlatformId = new Guid("2b60a4fb-3c38-4fea-9d55-ed03151290e1")
                         },
                         new
                         {
-                            Id = new Guid("f01a790b-87c5-4441-a162-3376e3ab94c8"),
-                            VideoGameId = new Guid("a4d51e63-bbeb-42a7-abb9-b127932d13f7"),
+                            Id = new Guid("ecba4568-deb7-4473-85c2-305bc23a7c04"),
+                            VideoGameId = new Guid("55a05148-2325-4adf-8bcc-68c2ddb0d831"),
                             VideoGamePlatformId = new Guid("ddc9382d-5e3c-453d-a35e-046e48b28f61")
                         },
                         new
                         {
-                            Id = new Guid("1e1c9fef-9999-4543-8c00-21026f9753a9"),
-                            VideoGameId = new Guid("a4d51e63-bbeb-42a7-abb9-b127932d13f7"),
+                            Id = new Guid("e7111421-3f13-4efd-9c7d-ee581ebe7de9"),
+                            VideoGameId = new Guid("55a05148-2325-4adf-8bcc-68c2ddb0d831"),
                             VideoGamePlatformId = new Guid("518a4c3e-5a6d-4ca5-b960-ce27a73d4afc")
                         },
                         new
                         {
-                            Id = new Guid("be54b06f-5544-48a3-9ac9-e901d46b58bc"),
-                            VideoGameId = new Guid("a4d51e63-bbeb-42a7-abb9-b127932d13f7"),
+                            Id = new Guid("847539ea-d15a-4843-8b92-69816a1e76d3"),
+                            VideoGameId = new Guid("55a05148-2325-4adf-8bcc-68c2ddb0d831"),
                             VideoGamePlatformId = new Guid("2b60a4fb-3c38-4fea-9d55-ed03151290e1")
                         },
                         new
                         {
-                            Id = new Guid("24655c12-1bb4-4e57-981e-28bf4470ebe3"),
-                            VideoGameId = new Guid("63e26d44-502d-4ca4-a47c-4538e10f5bd3"),
+                            Id = new Guid("e72247db-4477-4df1-9a4b-dd043c6a802f"),
+                            VideoGameId = new Guid("b436970e-b327-4f68-b450-a8b507398a90"),
                             VideoGamePlatformId = new Guid("0600e140-c1ad-42d3-a4a9-81f58bac94fd")
                         });
+                });
+
+            modelBuilder.Entity("VideoGameLibraryApp.Domain.IdentiyEntities.ApplicationRole", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("VideoGameLibraryApp.Domain.IdentiyEntities.ApplicationUser", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
+                {
+                    b.HasOne("VideoGameLibraryApp.Domain.IdentiyEntities.ApplicationRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+                {
+                    b.HasOne("VideoGameLibraryApp.Domain.IdentiyEntities.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+                {
+                    b.HasOne("VideoGameLibraryApp.Domain.IdentiyEntities.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+                {
+                    b.HasOne("VideoGameLibraryApp.Domain.IdentiyEntities.ApplicationRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("VideoGameLibraryApp.Domain.IdentiyEntities.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+                {
+                    b.HasOne("VideoGameLibraryApp.Domain.IdentiyEntities.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("VideoGameLibraryApp.Domain.Entities.VideoGamePlatformAvailability", b =>

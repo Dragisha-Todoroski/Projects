@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj": {}
+    "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj": {
+    "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj",
         "projectName": "VideoGameLibraryApp.Domain",
-        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj",
+        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj",
         "packagesPath": "C:\\Users\\DRAGISA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\obj\\",
+        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DRAGISA\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,20 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Tests\\VideoGameLibraryApp.Tests.csproj": {}
+    "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Tests\\VideoGameLibraryApp.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj": {
+    "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj",
         "projectName": "VideoGameLibraryApp.DataAccess",
-        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj",
+        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj",
         "packagesPath": "C:\\Users\\DRAGISA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DRAGISA\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj": {
-                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj"
+              "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj"
               }
             }
           }
@@ -46,23 +46,23 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[6.0.25, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[6.0.25, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[6.0.25, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[6.0.25, )"
             }
           },
           "imports": [
@@ -85,14 +85,14 @@
         }
       }
     },
-    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj": {
+    "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj",
         "projectName": "VideoGameLibraryApp.Domain",
-        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj",
+        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj",
         "packagesPath": "C:\\Users\\DRAGISA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\obj\\",
+        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DRAGISA\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -120,6 +120,20 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -140,14 +154,14 @@
         }
       }
     },
-    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\VideoGameLibraryApp.Exceptions.csproj": {
+    "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\VideoGameLibraryApp.Exceptions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\VideoGameLibraryApp.Exceptions.csproj",
+        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\VideoGameLibraryApp.Exceptions.csproj",
         "projectName": "VideoGameLibraryApp.Exceptions",
-        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\VideoGameLibraryApp.Exceptions.csproj",
+        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\VideoGameLibraryApp.Exceptions.csproj",
         "packagesPath": "C:\\Users\\DRAGISA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\obj\\",
+        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DRAGISA\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -195,14 +209,14 @@
         }
       }
     },
-    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Helpers\\VideoGameLibraryApp.Helpers.csproj": {
+    "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Helpers\\VideoGameLibraryApp.Helpers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Helpers\\VideoGameLibraryApp.Helpers.csproj",
+        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Helpers\\VideoGameLibraryApp.Helpers.csproj",
         "projectName": "VideoGameLibraryApp.Helpers",
-        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Helpers\\VideoGameLibraryApp.Helpers.csproj",
+        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Helpers\\VideoGameLibraryApp.Helpers.csproj",
         "packagesPath": "C:\\Users\\DRAGISA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Helpers\\obj\\",
+        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Helpers\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DRAGISA\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -219,11 +233,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj"
+              "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj"
               },
-              "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj": {
-                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj"
+              "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj": {
+                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj"
               }
             }
           }
@@ -240,23 +254,23 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[6.0.25, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[6.0.25, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[6.0.25, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[6.0.25, )"
             },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
@@ -283,14 +297,14 @@
         }
       }
     },
-    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\VideoGameLibraryApp.Repositories.csproj": {
+    "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\VideoGameLibraryApp.Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\VideoGameLibraryApp.Repositories.csproj",
+        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\VideoGameLibraryApp.Repositories.csproj",
         "projectName": "VideoGameLibraryApp.Repositories",
-        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\VideoGameLibraryApp.Repositories.csproj",
+        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\VideoGameLibraryApp.Repositories.csproj",
         "packagesPath": "C:\\Users\\DRAGISA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\obj\\",
+        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DRAGISA\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -307,8 +321,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj"
+              "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.DataAccess\\VideoGameLibraryApp.DataAccess.csproj"
               }
             }
           }
@@ -342,14 +356,14 @@
         }
       }
     },
-    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj": {
+    "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj",
+        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj",
         "projectName": "VideoGameLibraryApp.Services",
-        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj",
+        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj",
         "packagesPath": "C:\\Users\\DRAGISA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\obj\\",
+        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DRAGISA\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -366,14 +380,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj": {
-                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj"
+              "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Domain\\VideoGameLibraryApp.Domain.csproj"
               },
-              "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\VideoGameLibraryApp.Exceptions.csproj": {
-                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\VideoGameLibraryApp.Exceptions.csproj"
+              "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\VideoGameLibraryApp.Exceptions.csproj": {
+                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\VideoGameLibraryApp.Exceptions.csproj"
               },
-              "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\VideoGameLibraryApp.Repositories.csproj": {
-                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\VideoGameLibraryApp.Repositories.csproj"
+              "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\VideoGameLibraryApp.Repositories.csproj": {
+                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Repositories\\VideoGameLibraryApp.Repositories.csproj"
               }
             }
           }
@@ -407,14 +421,14 @@
         }
       }
     },
-    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Tests\\VideoGameLibraryApp.Tests.csproj": {
+    "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Tests\\VideoGameLibraryApp.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Tests\\VideoGameLibraryApp.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Tests\\VideoGameLibraryApp.Tests.csproj",
         "projectName": "VideoGameLibraryApp.Tests",
-        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Tests\\VideoGameLibraryApp.Tests.csproj",
+        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Tests\\VideoGameLibraryApp.Tests.csproj",
         "packagesPath": "C:\\Users\\DRAGISA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Tests\\obj\\",
+        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DRAGISA\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -431,14 +445,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\VideoGameLibraryApp.Exceptions.csproj": {
-                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\VideoGameLibraryApp.Exceptions.csproj"
+              "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\VideoGameLibraryApp.Exceptions.csproj": {
+                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Exceptions\\VideoGameLibraryApp.Exceptions.csproj"
               },
-              "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj": {
-                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj"
+              "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj": {
+                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj"
               },
-              "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.csproj": {
-                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.csproj"
+              "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.csproj": {
+                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.csproj"
               }
             }
           }
@@ -463,11 +477,11 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[6.0.25, )"
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[6.0.25, )"
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
@@ -514,14 +528,14 @@
         }
       }
     },
-    "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.csproj": {
+    "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.csproj",
+        "projectUniqueName": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.csproj",
         "projectName": "VideoGameLibraryApp",
-        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.csproj",
+        "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.csproj",
         "packagesPath": "C:\\Users\\DRAGISA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\obj\\",
+        "outputPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DRAGISA\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -538,11 +552,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Helpers\\VideoGameLibraryApp.Helpers.csproj": {
-                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Helpers\\VideoGameLibraryApp.Helpers.csproj"
+              "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Helpers\\VideoGameLibraryApp.Helpers.csproj": {
+                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Helpers\\VideoGameLibraryApp.Helpers.csproj"
               },
-              "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj": {
-                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj"
+              "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj": {
+                "projectPath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.Services\\VideoGameLibraryApp.Services.csproj"
               }
             }
           }
@@ -557,11 +571,15 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[6.0.25, )"
             }
           },
           "imports": [

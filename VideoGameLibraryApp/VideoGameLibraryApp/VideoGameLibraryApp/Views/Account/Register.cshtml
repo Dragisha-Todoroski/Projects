@@ -1,0 +1,41 @@
+﻿@model RegisterDTO
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<form asp-controller="Account" asp-action="Register" method="post">
+    <div class="mt-25">
+        @Html.LabelFor(x => x.Username)
+        @Html.TextBoxFor(x => x.Username)
+    </div>
+
+    <div class="mt-25">
+        @Html.LabelFor(x => x.Email)
+        @Html.TextBoxFor(x => x.Email)
+    </div>
+
+    <div class="mt-25">
+        @Html.LabelFor(x => x.Password)
+        @Html.PasswordFor(x => x.Password)
+    </div>
+
+    <div class="mt-25">
+        @Html.LabelFor(x => x.ConfirmPassword)
+        @Html.PasswordFor(x => x.ConfirmPassword)
+    </div>
+
+    <div class="mt-35">
+        <button type="submit">Register!</button>
+    </div>
+
+    <div asp-validation-summary="All" class="danger"></div>
+</form>
+
+@section validationScripts {
+    @* <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" asp-fallback-test="window.jQuery" asp-fallback-src="~/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.4/jquery.validate.min.js" asp-fallback-test="window.jQuery.validator" asp-fallback-src="~/jquery.validate.min.js"></script>*@
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" asp-fallback-test="window.jQuery.validator.unobstrusive" asp-fallback-src="~/jquery.validate.unobtrusive.min.js"></script>
+}
