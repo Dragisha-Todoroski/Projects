@@ -4,6 +4,8 @@
     ViewBag.Title = "Delete";
 }
 
+<div><a asp-controller="VideoGames" asp-action="Index">Back to Library!</a></div>
+
 <form asp-controller="VideoGames" asp-action="Delete" method="post">
     <div class="display-none">
         @Html.HiddenFor(x => x.Id);

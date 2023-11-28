@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using VideoGameLibraryApp.DataAccess;
@@ -24,6 +25,24 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
     .AddUserStore<UserStore<ApplicationUser, ApplicationRole, ApplicationDbContext, Guid>>()
     .AddRoleStore<RoleStore<ApplicationRole, ApplicationDbContext, Guid>>();
 
+builder.Services.AddAuthorization(options =>
+{
+    options.FallbackPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    options.AddPolicy("NotAuthenticated", policy =>
+    {
+        // Only accessible if not authenticated
+        policy.RequireAssertion(context =>
+        {
+            return !context.User.Identity!.IsAuthenticated;
+        });
+    });
+});
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+});
+
 var app = builder.Build();
 
 if (builder.Environment.IsDevelopment())
@@ -33,6 +52,9 @@ else
     app.UseExceptionHandler("/Error");
     app.UseCustomExceptionHandlingMiddleware();
 }
+
+app.UseHsts();
+app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseRouting();

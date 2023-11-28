@@ -4,7 +4,7 @@
     ViewBag.Title = "Login";
 }
 
-<form asp-controller="Account" asp-action="Login" method="post">
+<form asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="@Context.Request.Query["ReturnUrl"]" method="post">
     <div class="mt-25">
         @Html.LabelFor(x => x.Email)
         @Html.TextBoxFor(x => x.Email)

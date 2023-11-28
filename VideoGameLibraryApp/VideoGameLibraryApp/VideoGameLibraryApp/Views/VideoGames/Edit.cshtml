@@ -4,6 +4,8 @@
     ViewBag.Title = "Edit";
 }
 
+<div><a asp-controller="VideoGames" asp-action="Index">Back to Library!</a></div>
+
 <form asp-controller="VideoGames" asp-action="Edit" method="post">
     <div class="display-none">
         @Html.HiddenFor(x => x.Id);
@@ -33,8 +35,12 @@
         @Html.LabelFor(x => x.VideoGamePlatformIds)
         @foreach (var platform in ViewBag.VideoGamePlatforms)
         {
-            <input type="checkbox" name="VideoGamePlatformIds" value="@platform.Id" @(Model.VideoGamePlatformIds?.Contains(platform.Id) ? "checked" : "") />
-            <span>@platform.Name</span>
+            <input type="checkbox" name="VideoGamePlatformIds" value="@platform.Id" id="@platform.Id" @(Model.VideoGamePlatformIds?.Contains(platform.Id) ? "checked" : "") />
+            <span>
+                <label for="@platform.Id">
+                    @platform.Name
+                </label>
+            </span>
         }
     </div>
 

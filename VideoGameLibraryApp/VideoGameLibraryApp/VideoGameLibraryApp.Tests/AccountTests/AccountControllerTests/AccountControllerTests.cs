@@ -4,12 +4,14 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
 using VideoGameLibraryApp.Controllers;
 using VideoGameLibraryApp.Domain.IdentiyEntities;
 using VideoGameLibraryApp.Services.DTOs.AccountDTOs;
+using VideoGameLibraryApp.Services.Enums;
 
 namespace VideoGameLibraryApp.Tests.AccountTests.AccountControllerTests
 {
@@ -18,10 +20,13 @@ namespace VideoGameLibraryApp.Tests.AccountTests.AccountControllerTests
         private readonly AccountController _accountController;
 
         private readonly Mock<UserManager<ApplicationUser?>> _userManagerMock;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<ApplicationUser?> _userManager;
 
         private readonly Mock<SignInManager<ApplicationUser>> _signInManagerMock;
         private readonly SignInManager<ApplicationUser> _signInManager;
+
+        private readonly Mock<RoleManager<ApplicationRole>> _roleManagerMock;
+        private readonly RoleManager<ApplicationRole> _roleManager;
 
         private readonly IFixture _fixture;
 
@@ -51,7 +56,16 @@ namespace VideoGameLibraryApp.Tests.AccountTests.AccountControllerTests
 
             _signInManager = _signInManagerMock.Object;
 
-            _accountController = new AccountController(_userManager, _signInManager);
+            _roleManagerMock = new Mock<RoleManager<ApplicationRole>>(
+                new Mock<IRoleStore<ApplicationRole>>().Object,
+                new IRoleValidator<ApplicationRole>[0],
+                new Mock<ILookupNormalizer>().Object,
+                new Mock<IdentityErrorDescriber>().Object,
+                new Mock<ILogger<RoleManager<ApplicationRole>>>().Object);
+
+            _roleManager = _roleManagerMock.Object;
+
+            _accountController = new AccountController(_userManager, _signInManager, _roleManager);
 
             _fixture = new Fixture();
         }
@@ -107,13 +121,27 @@ namespace VideoGameLibraryApp.Tests.AccountTests.AccountControllerTests
             // Arrange
             RegisterDTO registerDTO = _fixture.Create<RegisterDTO>();
 
+            ApplicationRole applicationRole = _fixture.Create<ApplicationRole>();
+
             _userManagerMock
                 .Setup(x => x.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
+                .ReturnsAsync(IdentityResult.Success);
+
+            _userManagerMock
+                .Setup(x => x.AddToRoleAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
                 .ReturnsAsync(IdentityResult.Success);
 
             _signInManagerMock
                 .Setup(x => x.SignInAsync(It.IsAny<ApplicationUser>(), It.IsAny<bool>(), null))
                 .Returns(Task.FromResult(Microsoft.AspNetCore.Identity.SignInResult.Success));
+
+            _roleManagerMock
+                .Setup(x => x.FindByNameAsync(It.IsAny<string>()))
+                .Returns(Task.FromResult(applicationRole));
+
+            _roleManagerMock
+                .Setup(x => x.CreateAsync(It.IsAny<ApplicationRole>()))
+                .ReturnsAsync(IdentityResult.Success);
 
             // Act
             IActionResult result = await _accountController.Register(registerDTO);
@@ -185,7 +213,7 @@ namespace VideoGameLibraryApp.Tests.AccountTests.AccountControllerTests
             // Act
             _accountController.ModelState.AddModelError(nameof(loginDTO.Email), "Email is not in the correct format!");
 
-            IActionResult result = await _accountController.Login(loginDTO);
+            IActionResult result = await _accountController.Login(loginDTO, null);
 
             // Assert
             ViewResult viewResult = Assert.IsType<ViewResult>(result);
@@ -212,7 +240,7 @@ namespace VideoGameLibraryApp.Tests.AccountTests.AccountControllerTests
                 .ReturnsAsync(user);
 
             // Act
-            IActionResult result = await _accountController.Login(loginDTO);
+            IActionResult result = await _accountController.Login(loginDTO, null);
 
             // Assert
             ViewResult viewResult = Assert.IsType<ViewResult>(result);
@@ -220,6 +248,47 @@ namespace VideoGameLibraryApp.Tests.AccountTests.AccountControllerTests
             viewResult.Model.Should().BeOfType<LoginDTO>();
 
             viewResult.Model.Should().BeEquivalentTo(loginDTO);
+        }
+
+
+
+        // Test should return LocalRedirectResult to the return url after logging in
+
+        [Fact]
+        public async Task Login_IfNoModelErrorsAndRedirectUrlApplicable_ReturnsLocalRedirectResultToRedirectUrl()
+        {
+            // Arrange
+            LoginDTO loginDTO = _fixture.Create<LoginDTO>();
+
+            ApplicationUser user = _fixture.Create<ApplicationUser>();
+
+            string returnUrl = "/Controller/Action";
+
+            HttpContext httpContext = new DefaultHttpContext();
+
+            Mock<UrlHelper> urlHelper = new Mock<UrlHelper>(new ActionContext(httpContext, new Microsoft.AspNetCore.Routing.RouteData(), new Microsoft.AspNetCore.Mvc.Abstractions.ActionDescriptor()));
+
+            urlHelper
+                .Setup(x => x.IsLocalUrl(It.IsAny<string>()))
+                .Returns(true);
+
+            _accountController.Url = urlHelper.Object;
+
+            _userManagerMock
+                .Setup(x => x.FindByEmailAsync(It.IsAny<string>()))
+                .ReturnsAsync(user);
+
+            _signInManagerMock
+                .Setup(x => x.PasswordSignInAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<bool>()))
+                .ReturnsAsync(Microsoft.AspNetCore.Identity.SignInResult.Success);
+
+            // Act
+            IActionResult result = await _accountController.Login(loginDTO, returnUrl);
+
+            // Assert
+            LocalRedirectResult localRedirectResult = Assert.IsType<LocalRedirectResult>(result);
+
+            localRedirectResult.Url.Should().Be(returnUrl);
         }
 
 
@@ -244,7 +313,7 @@ namespace VideoGameLibraryApp.Tests.AccountTests.AccountControllerTests
                 .ReturnsAsync(Microsoft.AspNetCore.Identity.SignInResult.Success);
 
             // Act
-            IActionResult result = await _accountController.Login(loginDTO);
+            IActionResult result = await _accountController.Login(loginDTO, null);
 
             // Assert
             RedirectToActionResult redirectResult = Assert.IsType<RedirectToActionResult>(result);
@@ -275,7 +344,7 @@ namespace VideoGameLibraryApp.Tests.AccountTests.AccountControllerTests
                 .ReturnsAsync(Microsoft.AspNetCore.Identity.SignInResult.Failed);
 
             // Act
-            IActionResult result = await _accountController.Login(loginDTO);
+            IActionResult result = await _accountController.Login(loginDTO, null);
 
             // Assert
             ViewResult viewResult = Assert.IsType<ViewResult>(result);

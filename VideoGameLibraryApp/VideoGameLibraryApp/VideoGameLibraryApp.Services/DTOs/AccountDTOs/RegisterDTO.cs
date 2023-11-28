@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VideoGameLibraryApp.Services.Enums;
 
 namespace VideoGameLibraryApp.Services.DTOs.AccountDTOs
 {
@@ -27,6 +28,10 @@ namespace VideoGameLibraryApp.Services.DTOs.AccountDTOs
         [DataType(DataType.Password)]
         [Compare(nameof(Password), ErrorMessage = "{1} and {0} must match!")]
         public string? ConfirmPassword { get; set; }
+
+        [Required(ErrorMessage = "{0} can't be blank!")]
+        [Display(Name = "User Role")]
+        public UserRole UserRole { get; set; } = UserRole.User;
 
     }
 }

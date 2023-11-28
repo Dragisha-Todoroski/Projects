@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
 namespace VideoGameLibraryApp.Controllers
@@ -6,6 +7,7 @@ namespace VideoGameLibraryApp.Controllers
     public class ErrorsController : Controller
     {
         [Route("Error")]
+        [AllowAnonymous]
         public IActionResult Index()
         {
             IExceptionHandlerPathFeature? exceptionHandlerPathFeature = HttpContext.Features.Get<IExceptionHandlerPathFeature>();
