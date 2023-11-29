@@ -115,10 +115,13 @@ namespace VideoGameLibraryApp.Controllers
             {
                 return RedirectToAction("Index");
             }
-
-            VideoGameResponse? videoGameResponse = await _videoGamesGetterByTitleService.GetVideoGameByTitle(videoGameUpdateRequest?.Title);
-            if (videoGameResponse != null)
-                ModelState.AddModelError("Duplicate Title", "Title already exists!");
+            
+            if (videoGameResponseById.Title != videoGameUpdateRequest?.Title)
+            {
+                VideoGameResponse? videoGameResponse = await _videoGamesGetterByTitleService.GetVideoGameByTitle(videoGameUpdateRequest?.Title);
+                if (videoGameResponse != null)
+                    ModelState.AddModelError("Duplicate Title", "Title already exists!");
+            }
 
             if (!ModelState.IsValid)
             {
