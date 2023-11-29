@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using VideoGameLibraryApp.DataAccess;
@@ -13,17 +15,20 @@ namespace VideoGameLibraryApp.Repositories.Implementations.VideoGameImplementati
     public class VideoGamesGetterByTitleRepository : IVideoGamesGetterByTitleRepository
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public VideoGamesGetterByTitleRepository(ApplicationDbContext context)
+        public VideoGamesGetterByTitleRepository(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<VideoGame?> GetVideoGameByTitle(string title)
         {
             var videoGame = await _context.Set<VideoGame>()
-                .Include(x => x.VideoGamePlatformAvailability)
-                .FirstOrDefaultAsync(y => y.Title == title);
+                .Include(x => x.User)
+                .Include(y => y.VideoGamePlatformAvailability)
+                .FirstOrDefaultAsync(z => z.Title == title && z.UserId == Guid.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)));
 
             // If VideoGamePlatformAvailability has at least one item in it, load the related VideoGamePlatform
             if (videoGame != null && videoGame.VideoGamePlatformAvailability != null)

@@ -88,6 +88,7 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesServicesTests
             VideoGame videoGame = _fixture
                 .Build<VideoGame>()
                 .Without(x => x.VideoGamePlatformAvailability)
+                .Without(x => x.User)
                 .Create();
 
             VideoGameResponse videoGameResponseExpected = videoGame.ToVideoGameResponse();

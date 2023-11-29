@@ -32,7 +32,7 @@ namespace VideoGameLibraryApp.Controllers
             _videoGamesDeleterService = videoGamesDeleterService;
         }
 
-        [Route("[controller]/library")]
+        [Route("library")]
         [Route("/")]
         public async Task<IActionResult> Index()
         {
@@ -83,7 +83,7 @@ namespace VideoGameLibraryApp.Controllers
 
                 return View(videoGameAddRequest);
             }
-
+            
             await _videoGamesAdderService.AddVideoGame(videoGameAddRequest);
 
             return RedirectToAction("Index");
@@ -115,6 +115,10 @@ namespace VideoGameLibraryApp.Controllers
             {
                 return RedirectToAction("Index");
             }
+
+            VideoGameResponse? videoGameResponse = await _videoGamesGetterByTitleService.GetVideoGameByTitle(videoGameUpdateRequest?.Title);
+            if (videoGameResponse != null)
+                ModelState.AddModelError("Duplicate Title", "Title already exists!");
 
             if (!ModelState.IsValid)
             {

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using VideoGameLibraryApp.Domain.Entities;
@@ -15,10 +18,11 @@ namespace VideoGameLibraryApp.Services.Implementations.VIdeoGameImplementations
     public class VideoGamesAdderService : IVideoGamesAdderService
     {
         private readonly IVideoGamesAdderRepository _videoGamesAdderRepository;
-
-        public VideoGamesAdderService(IVideoGamesAdderRepository videoGamesAdderRepository)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public VideoGamesAdderService(IVideoGamesAdderRepository videoGamesAdderRepository, IHttpContextAccessor httpContextAccessor)
         {
             _videoGamesAdderRepository = videoGamesAdderRepository;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<VideoGameResponse> AddVideoGame(VideoGameAddRequest? videoGameAddRequest)
@@ -34,6 +38,7 @@ namespace VideoGameLibraryApp.Services.Implementations.VIdeoGameImplementations
             VideoGame videoGame = videoGameAddRequest.ToVideoGame();
 
             videoGame.Id = Guid.NewGuid();
+            videoGame.UserId = Guid.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             var platforms = videoGameAddRequest.VideoGamePlatformIds;
 

@@ -8,12 +8,12 @@
 
 <form asp-controller="VideoGames" asp-action="Create" method="post">
     <div class="mt-25">
-        @Html.LabelFor(x => x.Title)
+        <span class="required">@Html.LabelFor(x => x.Title)</span>
         @Html.TextBoxFor(x => x.Title)
     </div>
 
     <div class="mt-25">
-        @Html.LabelFor(x => x.Genre)
+        <span class="required">@Html.LabelFor(x => x.Genre)</span>
         @Html.DropDownListFor(x => x.Genre, (List<SelectListItem>)ViewBag.Genres)
     </div>
 

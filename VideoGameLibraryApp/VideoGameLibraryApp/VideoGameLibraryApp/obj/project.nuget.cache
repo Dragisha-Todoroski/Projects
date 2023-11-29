@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "d7G+dcXOcJLrFq9xqADTomntSL1XwYtVjUpcKKw3IeT8mCByvC7Jp9fPlcfPXwQbGZbLz/GHDpSUT/CfyEmFkw==",
+  "dgSpecHash": "No+faPfvhy86FcNdTR389HEAsB9iQ7YDZrogHIXwZpwmyM2Otk2QnXPdc4brfzS79M4Lr5/85OIOltVIZJ3IPA==",
   "success": true,
   "projectFilePath": "C:\\Users\\DRAGISA\\Desktop\\proj\\Projects\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp\\VideoGameLibraryApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DRAGISA\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DRAGISA\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.25\\microsoft.aspnetcore.cryptography.internal.6.0.25.nupkg.sha512",
     "C:\\Users\\DRAGISA\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.25\\microsoft.aspnetcore.cryptography.keyderivation.6.0.25.nupkg.sha512",
+    "C:\\Users\\DRAGISA\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\DRAGISA\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\DRAGISA\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.25\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.25.nupkg.sha512",
     "C:\\Users\\DRAGISA\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\DRAGISA\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
@@ -50,6 +52,7 @@
     "C:\\Users\\DRAGISA\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
     "C:\\Users\\DRAGISA\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\DRAGISA\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
+    "C:\\Users\\DRAGISA\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
     "C:\\Users\\DRAGISA\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
   "logs": []

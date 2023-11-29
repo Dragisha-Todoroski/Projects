@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VideoGameLibraryApp.Domain.IdentiyEntities;
 
 namespace VideoGameLibraryApp.Domain.Entities
 {
@@ -28,5 +29,9 @@ namespace VideoGameLibraryApp.Domain.Entities
         public virtual ICollection<VideoGamePlatformAvailability>? VideoGamePlatformAvailability { get; set; } = new List<VideoGamePlatformAvailability>();
         public bool IsMultiplayer { get; set; }
         public bool IsCoop { get; set; }
+        public Guid UserId { get; set; }
+
+        [ForeignKey(nameof(UserId))]
+        public virtual ApplicationUser? User { get; set; }
     }
 }

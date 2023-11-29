@@ -9,6 +9,8 @@ using VideoGameLibraryApp.Middlewares;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddHttpContextAccessor();
+
 DependencyInjectionHelper.InjectDbContext(builder.Services, builder.Configuration);
 DependencyInjectionHelper.InjectServices(builder.Services);
 DependencyInjectionHelper.InjectRepositories(builder.Services);

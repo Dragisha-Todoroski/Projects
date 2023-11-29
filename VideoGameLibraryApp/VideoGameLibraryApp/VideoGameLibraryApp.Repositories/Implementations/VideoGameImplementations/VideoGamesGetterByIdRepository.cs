@@ -22,8 +22,9 @@ namespace VideoGameLibraryApp.Repositories.Implementations.VideoGameImplementati
         public async Task<VideoGame?> GetVideoGameById(Guid videoGameId)
         {
             var videoGame = await _context.Set<VideoGame>()
-                .Include(x => x.VideoGamePlatformAvailability)
-                .FirstOrDefaultAsync(y => y.Id == videoGameId);
+                .Include(x => x.User)
+                .Include(y => y.VideoGamePlatformAvailability)
+                .FirstOrDefaultAsync(z => z.Id == videoGameId);
 
             // If VideoGamePlatformAvailability has at least one item in it, load the related VideoGamePlatform
             if (videoGame != null && videoGame.VideoGamePlatformAvailability != null)

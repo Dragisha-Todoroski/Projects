@@ -260,7 +260,10 @@ namespace VideoGameLibraryApp.Tests.AccountTests.AccountControllerTests
             // Arrange
             LoginDTO loginDTO = _fixture.Create<LoginDTO>();
 
-            ApplicationUser user = _fixture.Create<ApplicationUser>();
+            ApplicationUser user = _fixture
+                .Build<ApplicationUser>()
+                .Without(x => x.VideoGames)
+                .Create();
 
             string returnUrl = "/Controller/Action";
 
@@ -302,7 +305,10 @@ namespace VideoGameLibraryApp.Tests.AccountTests.AccountControllerTests
             // Arrange
             LoginDTO loginDTO = _fixture.Create<LoginDTO>();
 
-            ApplicationUser user = _fixture.Create<ApplicationUser>();
+            ApplicationUser user = _fixture
+                .Build<ApplicationUser>()
+                .Without(x => x.VideoGames)
+                .Create();
 
             _userManagerMock
                 .Setup(x => x.FindByEmailAsync(It.IsAny<string>()))
@@ -333,7 +339,10 @@ namespace VideoGameLibraryApp.Tests.AccountTests.AccountControllerTests
             // Arrange
             LoginDTO loginDTO = _fixture.Create<LoginDTO>();
 
-            ApplicationUser user = _fixture.Create<ApplicationUser>();
+            ApplicationUser user = _fixture
+                .Build<ApplicationUser>()
+                .Without(x => x.VideoGames)
+                .Create();
 
             _userManagerMock
                 .Setup(x => x.FindByEmailAsync(It.IsAny<string>()))

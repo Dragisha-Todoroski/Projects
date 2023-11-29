@@ -1,9 +1,11 @@
 ﻿using AutoFixture;
 using FluentAssertions;
+using Microsoft.AspNetCore.Http;
 using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using VideoGameLibraryApp.Domain.Entities;
@@ -68,6 +70,7 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesServicesTests
             List<VideoGame> videoGames = _fixture
                 .Build<VideoGame>()
                 .Without(x => x.VideoGamePlatformAvailability)
+                .Without(x => x.User)
                 .CreateMany().ToList();
 
             List<VideoGameResponse> videoGameResponseListExpected = videoGames.Select(x => x.ToVideoGameResponse()).ToList();

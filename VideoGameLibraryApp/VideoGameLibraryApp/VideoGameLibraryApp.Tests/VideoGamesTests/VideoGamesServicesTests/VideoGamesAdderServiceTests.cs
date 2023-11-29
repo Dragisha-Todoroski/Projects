@@ -1,9 +1,11 @@
 ﻿using AutoFixture;
 using FluentAssertions;
+using Microsoft.AspNetCore.Http;
 using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using VideoGameLibraryApp.Domain.Entities;
@@ -24,6 +26,9 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesServicesTests
         private readonly Mock<IVideoGamesAdderRepository> _videoGamesAdderRepositoryMock;
         private readonly IVideoGamesAdderRepository _videoGamesAdderRepository;
 
+        private readonly Mock<IHttpContextAccessor> _contextAccessorMock;
+        private readonly IHttpContextAccessor _contextAccessor;
+
         private readonly IFixture _fixture;
 
         public VideoGamesAdderServiceTests()
@@ -31,7 +36,10 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesServicesTests
             _videoGamesAdderRepositoryMock = new Mock<IVideoGamesAdderRepository>();
             _videoGamesAdderRepository = _videoGamesAdderRepositoryMock.Object;
 
-            _videoGamesAdderService = new VideoGamesAdderService(_videoGamesAdderRepository);
+            _contextAccessorMock = new Mock<IHttpContextAccessor>();
+            _contextAccessor = _contextAccessorMock.Object;
+
+            _videoGamesAdderService = new VideoGamesAdderService(_videoGamesAdderRepository, _contextAccessor);
 
             _fixture = new Fixture();
         }
@@ -167,11 +175,18 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesServicesTests
             List<VideoGame> videoGamesList = _fixture
                 .Build<VideoGame>()
                 .Without(x => x.VideoGamePlatformAvailability)
+                .Without(x => x.User)
                 .CreateMany().ToList();
 
             _videoGamesAdderRepositoryMock
                 .Setup(x => x.AddVideoGame(It.IsAny<VideoGame>()))
                 .ReturnsAsync(videoGame);
+
+            _contextAccessorMock
+                .Setup(x => x.HttpContext!.User)
+                .Returns(new ClaimsPrincipal(new ClaimsIdentity(new[]{
+                    new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString()) 
+                })));
 
             // Act
             VideoGameResponse videoGameResponseActual = await _videoGamesAdderService.AddVideoGame(videoGameAddRequest);
@@ -180,7 +195,7 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesServicesTests
 
             // Assert
             videoGameResponseActual.Id.Should().NotBe(Guid.Empty);
-            videoGameResponseActual.Should().Be(videoGameResponseExpected);
+            videoGameResponseActual.Should().BeEquivalentTo(videoGameResponseExpected);
         }
 
         #endregion

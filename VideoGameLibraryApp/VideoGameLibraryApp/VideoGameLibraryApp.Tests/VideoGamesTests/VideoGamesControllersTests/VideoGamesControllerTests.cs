@@ -239,6 +239,7 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesControllersTests
 
             List<VideoGamePlatformResponse> videoGamePlatformResponseList = _fixture.CreateMany<VideoGamePlatformResponse>().ToList();
 
+
             _videoGamesGetterByIdServiceMock
                 .Setup(x => x.GetVideoGameById(It.IsAny<Guid>()))
                 .ReturnsAsync(videoGameResponse);
@@ -306,6 +307,10 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesControllersTests
                 .Setup(x => x.GetVideoGameById(It.IsAny<Guid>()))
                 .ReturnsAsync(videoGameResponse);
 
+            _videoGamesGetterByTitleServiceMock
+                .Setup(x => x.GetVideoGameByTitle(It.IsAny<string>()))
+                .ReturnsAsync(videoGameResponse);
+
             _videoGamePlatformsGetterAllServiceMock
                 .Setup(x => x.GetAllVideoGamePlatforms())
                 .ReturnsAsync(videoGamePlatformResponseList);
@@ -336,9 +341,19 @@ namespace VideoGameLibraryApp.Tests.VideoGamesTests.VideoGamesControllersTests
 
             VideoGameResponse videoGameResponse = videoGameUpdateRequest.ToVideoGame().ToVideoGameResponse();
 
+            VideoGameResponse? videoGameResponseFromTitleCheck = null;
+
+            _videoGamesGetterByIdServiceMock
+                .Setup(x => x.GetVideoGameById(It.IsAny<Guid>()))
+                .ReturnsAsync(videoGameResponse);
+
             _videoGamesUpdaterServiceMock
                 .Setup(x => x.UpdateVideoGame(It.IsAny<VideoGameUpdateRequest>()))
                 .ReturnsAsync(videoGameResponse);
+
+            _videoGamesGetterByTitleServiceMock
+                .Setup(x => x.GetVideoGameByTitle(It.IsAny<string>()))
+                .ReturnsAsync(videoGameResponseFromTitleCheck);
 
             // Act
             IActionResult result = await _videoGamesController.Edit(videoGameUpdateRequest);
