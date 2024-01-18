@@ -1,0 +1,68 @@
+body{
+    background: linear-gradient(to top , rgb(41, 44, 43), rgb(108, 121, 117), rgb(96, 121, 116)) fixed;
+}
+
+#calculator{
+    border: 8px solid black;
+    border-radius: 30px;
+    margin: 150px auto 0 auto;
+    width: 350px;
+    background: linear-gradient(to top left, rgb(102, 149, 190), rgb(5, 36, 64));
+}
+
+.inputs, .display{
+    height: 42.5px;
+    /* background-color: black; */
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-indent: -60px;
+    flex-basis: 100%;
+    /* background: linear-gradient(to top left, rgba(6, 30, 240, 0));  */
+}
+
+.inputs{
+    color: rgb(190, 190, 190);
+}
+
+.btns{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btn{
+    height: 65px;
+    cursor: pointer;
+    border-radius: 20px;
+    flex-basis: calc(25% - 15px);
+    font-size: 35px;
+    margin: 7px;
+}
+
+.inputBtn{
+    background-color: rgb(0, 0, 0);
+    color: rgb(41, 132, 222);
+}
+
+.operationBtn{
+    background-color: rgb(176, 201, 156);
+    color: black;
+}
+
+#calculator button:nth-of-type(1){
+    flex-basis: calc(50% - 15px);
+}
+
+#calculator button:nth-of-type(17){
+    flex-basis: calc(50% - 15px);
+}
+
+.inputBtn:hover{
+    background-color: rgb(188, 202, 201);
+    color: black;
+}
+
+.operationBtn:hover{
+    background-color: rgb(150, 188, 116);
+}
