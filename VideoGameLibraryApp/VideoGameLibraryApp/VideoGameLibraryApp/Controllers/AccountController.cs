@@ -29,19 +29,7 @@ namespace VideoGameLibraryApp.Controllers
         [Authorize("NotAuthenticated")]
         public IActionResult Register()
         {
-            ViewBag.UserRoles = Enum.GetValues(typeof(UserRole))
-                .Cast<UserRole>()
-                .Select(x => new SelectListItem
-                {
-                    Text = x.GetType()
-                        .GetMember(x.ToString())
-                        .First()
-                        .GetCustomAttribute<DisplayAttribute>()?
-                        .GetName() ?? x.ToString(),
-                    Value = x.ToString()
-                })
-                .ToList();
-
+            PopulateUserRolesInViewBag();
             return View();
         }
 
@@ -52,7 +40,10 @@ namespace VideoGameLibraryApp.Controllers
         public async Task<IActionResult> Register(RegisterDTO registerDTO)
         {
             if (!ModelState.IsValid)
+            {
+                PopulateUserRolesInViewBag();
                 return View(registerDTO);
+            }
 
             ApplicationUser applicationUser = new ApplicationUser()
             {
@@ -146,6 +137,22 @@ namespace VideoGameLibraryApp.Controllers
 
                 await _roleManager.CreateAsync(applicationRole);
             }
+        }
+
+        private void PopulateUserRolesInViewBag()
+        {
+            ViewBag.UserRoles = Enum.GetValues(typeof(UserRole))
+                .Cast<UserRole>()
+                .Select(x => new SelectListItem
+                {
+                    Text = x.GetType()
+                        .GetMember(x.ToString())
+                        .First()
+                        .GetCustomAttribute<DisplayAttribute>()?
+                        .GetName() ?? x.ToString(),
+                    Value = x.ToString()
+                })
+                .ToList();
         }
     }
 }

@@ -27,10 +27,13 @@
 
     <div class="mt-25">
         @Html.LabelFor(x => x.UserRole)
-        @foreach (var role in ViewBag.UserRoles)
+        @if (ViewBag.UserRoles != null)
         {
-            <input type="radio" asp-for="UserRole" value="@role.Value" id="@($"UserRole_{role.Value}")" />
-            <label for="@($"UserRole_{role.Value}")">@role.Text</label>
+            foreach (var role in ViewBag.UserRoles)
+            {
+                <input type="radio" asp-for="UserRole" value="@role.Value" id="@($"UserRole_{role.Value}")" />
+                <label for="@($"UserRole_{role.Value}")">@role.Text</label>
+            }
         }
     </div>
 
